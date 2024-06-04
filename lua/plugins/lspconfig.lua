@@ -27,6 +27,10 @@ local function make_config()
   lsp_config.yamlls.setup(tbl_merge("force", default_config, yamlls_config))
 
   -- LspConfig | Mason
+  -- gopls     | gopls
+  lsp_config.gopls.setup(default_config)
+
+  -- LspConfig | Mason
   -- marksman  | marksman
   lsp_config.marksman.setup(default_config)
 
