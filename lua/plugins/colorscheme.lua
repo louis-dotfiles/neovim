@@ -15,6 +15,7 @@ return {
     plugins = {
       "harpoon",
       "indent-blankline",
+      "neogit",
       "nvim-tree",
       "nvim-web-devicons",
       "telescope",
