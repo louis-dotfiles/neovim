@@ -7,7 +7,9 @@ end
 return {
   "Wansmer/treesj",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  opts = {},
+  opts = {
+    max_join_length = 300,
+  },
   keys = {
     {
       "gs",
