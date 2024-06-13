@@ -6,7 +6,11 @@ return {
   init = function ()
     vim.g.netrw_nogx = 1 -- disable netrw gx
   end,
-  opts = {},
+  opts = {
+    handler_options = {
+      search_engine = "ecosia"
+    },
+  },
   keys = {
     {
       "gx",
