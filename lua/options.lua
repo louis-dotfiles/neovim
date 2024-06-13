@@ -5,7 +5,7 @@ vim.opt.autoread = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.breakindent = true
 
 vim.opt.clipboard = "unnamedplus"
