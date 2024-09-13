@@ -17,6 +17,11 @@ return {
       desc = "Add to harpoon",
     },
     {
+      "<Leader>ha",
+      function() require("harpoon"):list():add() end,
+      desc = "Add to harpoon",
+    },
+    {
       "<Leader>hl",
       function()
         local harpoon = require("harpoon")
