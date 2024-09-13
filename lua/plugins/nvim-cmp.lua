@@ -3,7 +3,7 @@
 -- More completion sources:
 -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 
-function make_config(_, opts)
+local function make_config()
   local cmp = require("cmp")
 
   cmp.setup({
