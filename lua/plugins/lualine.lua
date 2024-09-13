@@ -2,7 +2,7 @@
 
 -- TODO: doesn't update properly when changing buffers?
 local function lsp_module()
-  local lsp_clients = vim.lsp.buf_get_clients()
+  local lsp_clients = vim.lsp.get_clients()
 
   if #lsp_clients == 0 then
     return "󰒲 "
