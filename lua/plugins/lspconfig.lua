@@ -49,8 +49,8 @@ local function make_config()
   lsp_config.lua_ls.setup(luals_config)
 
   -- LspConfig | Mason
-  -- tsserver  | typescript-language-server
-  lsp_config.tsserver.setup(default_config)
+  -- ts_ls     | typescript-language-server
+  lsp_config.ts_ls.setup(default_config)
 
   -- LspConfig | Mason
   -- dockerls  | dockerfile-language-server
