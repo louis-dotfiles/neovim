@@ -3,21 +3,24 @@
 return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {},
+  opts = {
+    warn_no_results = false,
+    open_no_results = true,
+  },
   keys = {
     {
       "<Leader>dd",
-      "<cmd>TroubleToggle document_diagnostics<cr>",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
       desc = "Document diagnostics",
     },
     {
       "<Leader>dw",
-      "<cmd>TroubleToggle workspace_diagnostics<cr>",
+      "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Workspace diagnostics",
     },
     {
       "<Leader>dc",
-      "<cmd>TroubleClose<cr>",
+      "<cmd>Trouble diagnostics close<cr>",
       desc = "Close diagnostics",
     },
   },
