@@ -25,37 +25,16 @@ Pay a visit to the [User_manual.md](./User_manual.md) documentation to learn mor
 
 ## Installation prerequisites
 
-**Neovim version >= 0.7.0**.
+**Neovim version >= 0.8.0**.
 
 Neovim itself doesn't need any additional programs to be installed
 and work, but to enjoy the full potential of the additional
 plugins (particularly LSP), you will need the following:
 - [Git](https://git-scm.com/).
-- [Node.js](https://nodejs.org/en).
+- [Node.js](https://nodejs.org/en). I recommend using [fnm](https://github.com/Schniz/fnm).
 - [Cargo](https://github.com/rust-lang/cargo) (the Rust package manager).
 - Some sort of C compiler (e.g. gcc).
-
-If you are using NixOs like I do, then also install:
-- `pkgs.lua-language-server`
-- `pkgs.marksman`
-
-e.g. All together in a `.nix` configuration:
-```nix
-  packages = with pkgs; [
-    neovim
-
-    # Runtimes and package managers.
-    nodejs_20
-    cargo
-
-    # Compilers.
-    gccgo # C compiler.
-
-    # Languages servers.
-    lua-language-server
-    marksman # Markdown.
-  ];
-```
+- Additional binaries: `fd`, `ripgrep`.
 
 ## Installation
 
