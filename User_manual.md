@@ -38,9 +38,10 @@ Most new features will be available as keybindings:
   - `p` plugins management.
   - `h` harpoons management.
   - `d` LSP diagnostics.
+  - `o` code outline (LSP symbols).
 - `g` has a few additional "editing" mappings:
   - `x`: behaves much like the orignal keybinding. It will open links, even partial ones like `user/project` github references.
-  - `a`: aligns / tabuates lines.
+  - `a`: aligns / tabulates lines.
   - `s`: splits / joins lists.
   - `c`: comment code.
 
