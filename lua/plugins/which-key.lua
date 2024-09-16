@@ -17,11 +17,13 @@ return {
       border = "single", -- none, single, double, shadow
     },
     icons = {
+      mappings = false,
       group = "󰉋 ",
-      colors = false,
     },
     spec = {
       { "<leader>d", group = "Diagnostics" },
+      { "<leader>o", group = "Code outline" },
+      { "<leader>m", group = "Markdown" },
       { "<leader>f", group = "Find" },
       { "<leader>h", group = "Harpoon" },
 
@@ -51,6 +53,5 @@ return {
       { "]d", vim.diagnostic.goto_next, desc = "Next diagnostic" },
     },
   },
-  -- config = make_config,
 }
 
