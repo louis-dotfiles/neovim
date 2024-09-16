@@ -27,6 +27,8 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.termguicolors = true
 
+vim.opt.foldmethod = "indent"
+
 vim.opt.list = true
 vim.opt.listchars = {
   tab = " 󰌒",
