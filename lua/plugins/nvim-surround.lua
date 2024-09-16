@@ -6,7 +6,7 @@ local function make_options()
       normal = "sa",
       visual = "S",
       delete = "sd",
-      change = "sc",
+      change = "sr",
     },
   }
 end
