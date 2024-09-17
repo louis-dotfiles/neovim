@@ -35,10 +35,6 @@ local function make_config()
   lsp_config.marksman.setup(default_config)
 
   -- LspConfig | Mason
-  -- nil_ls    | nil
-  lsp_config.nil_ls.setup(default_config)
-
-  -- LspConfig | Mason
   -- ansiblels | ansible-language-server
   lsp_config.ansiblels.setup(default_config)
 

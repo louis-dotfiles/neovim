@@ -19,7 +19,6 @@ local function make_config()
       "make",
       "markdown",
       "markdown_inline",
-      "nix",
       "python",
       "scss",
       "sql",
