@@ -31,9 +31,10 @@ Most new features will be available as keybindings:
 - `<leader>`, which is usually the `<Space>` key, will have most "heavy" features like:
   - `f` finding stuff.
     - `f`: files.
-    - `g`: file contents, aka Greping.
+    - `g`: file contents, aka `grep`ing.
     - `k`: keymaps.
     - `h`: help files.
+    - `c`: highlight groups (colors).
   - `l` LSP operations (jumping to definitions, renaming, findng references ...).
   - `p` plugins management.
   - `h` harpoons management.

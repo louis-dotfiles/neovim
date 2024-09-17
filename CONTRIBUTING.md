@@ -130,13 +130,19 @@ Thus I had to install the language server with the NixOs package manager directl
 
 ### Debugging highlight groups
 
-Use `:Telescope highlights` to easily browse highlights.
+Use `:Telescope highlights` to easily browse highlights (or the `<leader>fc` keymap).
 
-### Why does X feature not work anymore?
+To overwrite the colors, put them in the
+[colorscheme.lua](./lua/plugins/colorscheme.lua) file. Colorscheme may load
+asynchronously and override what you define elsewhere, so you need to make sure
+it will play nicely with your colorscheme of choice.
 
-I was wondering why my `gx` keybinding did not work anymore. Turns out it was a feature of the builtin `Netrw` file explorer and I had disabled it.
+### Why is feature X not working anymore?
 
-Simply be wary that some seamingly unrelated features come from the same plugin.
+I was wondering why my `gx` keybinding did not work anymore. Turns out it was a
+feature of the builtin `Netrw` file explorer and I had disabled it.
+
+Simply be wary that some seamingly unrelated features may come from the same plugin.
 
 
 
@@ -148,21 +154,23 @@ Simply be wary that some seamingly unrelated features come from the same plugin.
 - [~] Understand the nuances between the various references / incoming_calls, implementation / definition
 - [x] current indentation scope highlight not working. > Theme was to blame.
 - [x] hex color codes highlighting
-- [~] image preview tool WIP
+- [ ] image preview tool
 - [x] tabulation tool
 - [x] surround tool
 - [x] border for lazy UI
-- [~] folding (treesitter?, nvim-ufo?)
+- [x] folding
 - [x] diagnostic icons
 - [x] borders for various LSP popups.
 - [x] fix file explorer 'h' mapping
 - [x] lualine theme
 - [x] keybinding for clearing all harpoons
+- [x] code outline
+- [x] wider outline window
+- [ ] fix the markdown preview trigger
 - maybe?
-  - [x] 'noice' for nicer UI and hide the command line?
+  - [ ] 'noice' for nicer UI and hide the command line? No. Too invasive for me.
   - [ ] more text objects?
   - [ ] leap?
-  - [~] code outline?
   - [ ] nvim-notify
   - [ ] use telescope for quickfix list?
 
