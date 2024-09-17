@@ -30,36 +30,38 @@ Exceptions to all of the above rules are acceptable as long as they remain excep
 ## Plugins
 
 Here's the complete list of plugins and what we use them for:
+- align: tabulate text.
 - barbecue: file and LSP information at the top of every buffer.
 - cmp-buffer: completes buffer names.
 - cmp-cmdline: completes command names.
 - cmp-nvim-lsp: lsp completion for code.
 - cmp-path: completes paths.
-- Comment.nvim: comment code.
-- harpoon: "bookmark" files and easily switch to them.
+- comment.nvim: comment code.
+- dressing: nices prompt popups.
+- gx.nvim: replacement `gx` to open links in your browser.
 - harpoon-lualine: harpoon indicators in the statusline.
+- harpoon: "bookmark" files and easily switch to them.
 - indent-blankline.nvim: indentation guides for code scopes.
 - lazy.nvim: the plugins manager.
 - lualine.nvim: status line at the bottom of the screen.
-- LuaSnip: snippets.
+- luasnip: snippets.
+- markview: preview markdown files.
 - mason-lspconfig.nvim: adapter between Mason and lspconfig.
 - mason.nvim: installer for language servers.
 - material.nvim: colorscheme.
+- mini.align: easily align / tabulate code.
 - nvim-cmp: provide a completion window.
 - nvim-highlight-colors: Creates color previews from color codes.
 - nvim-lspconfig: configure LSP servers.
 - nvim-surround: change surrounding "pairs".
+- nvim-tree.lua: replacement file explorer.
 - nvim-treesitter: syntax highlighting for various languages.
 - nvim-web-devicons: nice icons.
 - schemastore.nvim: provides schemas for JSON and YAML completion.
-- which-key.nvim: reminder tool for keymaps.
-- aerial.nvim: code outline.
-- gx.nvim: replacement `gx` to open links in your browser.
-- mini.align: easily align / tabulate code.
-- nvim-tree.lua: replacement file explorer.
 - telescope.nvim: fuzzy finder.
 - treesj: split and join lines in a list.
-- trouble.nvim: nice diagnostic summary window.
+- trouble.nvim: nice diagnostic summary window and code outline.
+- which-key.nvim: reminder tool for keymaps.
 
 
 
