@@ -36,6 +36,7 @@ return {
       { "<leader>lm", vim.lsp.buf.references,     desc = "References" }, -- 'm' for 'mentions'.
       { "<leader>lc", vim.lsp.buf.incoming_calls, desc = "Calls" },
       { "<leader>lr", vim.lsp.buf.rename,         desc = "Rename" },
+      { "<leader>ll", "<cmd>LspInfo<cr>",         desc = "Info" }, -- 'll' because it's quick to type.
 
 
 
