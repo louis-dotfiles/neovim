@@ -30,6 +30,11 @@ return {
       "<cmd>Telescope help_tags<cr>",
       desc = "Help",
     },
+    {
+      "<Leader>fc",
+      "<cmd>Telescope highlights<cr>",
+      desc = "Colors (highlight groups)",
+    },
   },
   cmd = {
     "Telescope",
