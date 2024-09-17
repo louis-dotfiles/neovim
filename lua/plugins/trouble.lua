@@ -39,6 +39,11 @@ return {
   opts = {
     warn_no_results = false,
     open_no_results = true,
+    modes = {
+      symbols = {
+        win = { size = 40 },
+      },
+    },
   },
   keys = {
     {
