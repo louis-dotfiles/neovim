@@ -15,6 +15,11 @@ return {
       "<cmd>Telescope live_grep<cr>",
       desc = "Grep",
     },
+    { -- This one is useful when you don't recall the name of the files you opened.
+      "<Leader>fb",
+      "<cmd>Telescope buffers<cr>",
+      desc = "Buffers",
+    },
     {
       "<Leader>fk",
       "<cmd>Telescope keymaps<cr>",
