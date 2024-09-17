@@ -27,12 +27,15 @@ return {
   },
   opts = {
     sections = {
+      -- Left side.
       lualine_a = {"mode"},
       lualine_b = {
         { "branch", icon = "" },
         "diff",
       },
       lualine_c = { "diagnostics" },
+
+      -- Right side.
       lualine_x = { "harpoon2" },
       lualine_y = { lsp_module },
       lualine_z = {"progress"},

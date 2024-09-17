@@ -5,6 +5,7 @@ local function make_config(_, opts)
 
   -- Run this LAST.
   vim.g.material_style = "deep ocean"
+
   vim.cmd("colorscheme material")
 end
 
