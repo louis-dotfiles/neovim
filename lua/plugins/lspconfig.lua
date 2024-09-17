@@ -11,6 +11,7 @@ local tbl_merge = vim.tbl_deep_extend
 
 local function make_config()
   local lsp_config = require("lspconfig")
+  require('lspconfig.ui.windows').default_options.border = 'single'
 
   -- https://github.com/hrsh7th/nvim-cmp?tab=readme-ov-file#recommended-configuration
   local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()

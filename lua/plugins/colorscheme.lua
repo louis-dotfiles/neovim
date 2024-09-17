@@ -25,6 +25,14 @@ return {
     custom_highlights = {
       -- Brighter visual selection, more visible when selecting individual characters like surrounding quotes.
       Visual = { bg = "#252559" },
+
+      -- Visible borders.
+      FloatBorder = { fg = "#FFCB6B" },
+      LspInfoBorder = { fg = "#FFCB6B" },
+      TelescopePromptBorder = { fg = "#FFCB6B" },
+      TelescopePromptTitle = { fg = "#FFCB6B" },
+      NvimTreeWinSeparator = { fg = "#FFCB6B" },
+      WinSeparator = { fg = "#FFCB6B" },
     },
   },
   config = make_config,
