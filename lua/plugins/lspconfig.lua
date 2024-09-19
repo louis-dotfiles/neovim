@@ -56,6 +56,10 @@ local function make_config()
   -- LspConfig | Mason
   -- bashls    | bash-language-server
   lsp_config.bashls.setup(default_config)
+
+  -- LspConfig | Mason
+  -- groovyls  | groovy-language-server
+  lsp_config.groovyls.setup(default_config)
 end
 
 return {

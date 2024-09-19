@@ -11,6 +11,7 @@ local function make_config()
       "gitcommit",
       "gitignore",
       "go",
+      "groovy",
       "html",
       "javascript",
       "json",

@@ -11,4 +11,5 @@ require "options"
 require "config"
 require "keymaps"
 require "abbreviations"
+require "filetypes"
 
