@@ -1,9 +1,20 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 
+local function make_config(_, opts)
+  local telescope = require("telescope")
+
+  -- Load extensions here.
+
+  telescope.setup(opts)
+end
+
+
+
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.6",
   dependencies = { "nvim-lua/plenary.nvim" },
+  config = make_config,
   keys = {
     {
       "<Leader>ff",
