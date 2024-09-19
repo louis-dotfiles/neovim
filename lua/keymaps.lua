@@ -40,17 +40,17 @@ end
 
 set_keymap("n", "<F2>", toggle_line_wrap, keymap_opts)
 
-local function clear_search_pattern()
-  vim.cmd(':let @/ = ""')
-end
-
-set_keymap("n", "<F3>", clear_search_pattern, keymap_opts)
-
 local function toggle_relative_line_number()
   vim.o.relativenumber = not vim.o.relativenumber
 end
+set_keymap("n", "<F3>", toggle_relative_line_number, keymap_opts)
 
-set_keymap("n", "<F4>", toggle_relative_line_number, keymap_opts)
+
+
+local function clear_search_pattern()
+  vim.cmd(':let @/ = ""')
+end
+set_keymap("n", "<F5>", clear_search_pattern, keymap_opts)
 
 
 
