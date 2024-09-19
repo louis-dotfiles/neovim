@@ -16,7 +16,7 @@ local function make_config()
         -- open file
         api.node.open.edit()
         -- Close the tree if file was opened
-        api.tree.close()
+        -- api.tree.close()
       end
     end
 
@@ -84,6 +84,7 @@ end
 
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = false,
   config = make_config,
   keys = {
     {
