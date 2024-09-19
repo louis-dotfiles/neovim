@@ -1,5 +1,12 @@
 -- https://github.com/OXY2DEV/markview.nvim
 
+local function make_config(_, opts)
+  require("markview").setup(opts)
+
+  -- Only option to disable Markview by default :( .
+  vim.cmd("Markview disableAll")
+end
+
 return {
   "OXY2DEV/markview.nvim",
   lazy = false, -- As per the installation instructions.
@@ -9,9 +16,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
-  opts = {
-    modes = {},
-  },
+  opts = {},
+  config = make_config,
   keys = {
     {
       "<Leader>mm",
