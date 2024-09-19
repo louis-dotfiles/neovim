@@ -38,6 +38,7 @@ Here's the complete list of plugins and what we use them for:
 - cmp-path: completes paths.
 - comment.nvim: comment code.
 - dressing: nices prompt popups.
+- guess-indent.nvim: automatically sets the indentation level based on the current file indentation pattern.
 - gx.nvim: replacement `gx` to open links in your browser.
 - harpoon-lualine: harpoon indicators in the statusline.
 - harpoon: "bookmark" files and easily switch to them.
