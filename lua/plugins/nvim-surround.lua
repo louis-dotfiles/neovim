@@ -4,9 +4,9 @@ local function make_options()
   return {
     keymaps = {
       normal = "sa",
-      visual = "S",
       delete = "sd",
       change = "sr",
+      visual = "S",
     },
   }
 end

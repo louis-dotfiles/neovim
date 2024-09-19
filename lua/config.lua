@@ -5,7 +5,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- Border for the automatic LSP error, warning ... message popups.
+-- Border for the automatic LSP errors, warnings ... message popups.
 vim.diagnostic.config({
   float = { border = "rounded" },
 })

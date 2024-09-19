@@ -52,6 +52,7 @@ local function make_config()
     -- l/L to open folders and files.
     vim.keymap.set("n", "l", edit_or_open,   opts("Edit Or Open"))
     vim.keymap.set("n", "L", vsplit_preview, opts("Vsplit Preview"))
+
     -- h/H to close folders.
     vim.keymap.set("n", "h", api.node.navigate.parent,       opts("Close"))
     vim.keymap.set("n", "H", api.node.navigate.parent_close, opts("Close"))
@@ -61,8 +62,11 @@ local function make_config()
 
   require("nvim-tree").setup({
     on_attach = on_attach,
+
+    -- Recommended.
     hijack_cursor = true,
     disable_netrw = true,
+
     renderer = {
       add_trailing = true,
       indent_markers = {
@@ -75,9 +79,6 @@ local function make_config()
         },
       },
     },
-    -- view = {
-    --   signcolumn = "no",
-    -- },
   })
 end
 
