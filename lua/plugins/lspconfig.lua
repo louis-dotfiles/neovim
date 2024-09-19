@@ -10,12 +10,18 @@
 local tbl_merge = vim.tbl_deep_extend
 
 local function make_config()
+  local data_home = os.getenv("XDG_DATA_HOME") or "~/.local/share"
+  local nvim_data_home = data_home .. "/nvim"
+  local language_servers_home = nvim_data_home .. "/mason/packages"
+
   local lsp_config = require("lspconfig")
   require("lspconfig.ui.windows").default_options.border = "single"
 
   -- https://github.com/hrsh7th/nvim-cmp?tab=readme-ov-file#recommended-configuration
   local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
   local default_config = { capabilities = cmp_capabilities }
+
+
 
   -- LspConfig | Mason
   -- jsonls    | json-lsp
@@ -63,7 +69,10 @@ local function make_config()
 
   -- LspConfig | Mason
   -- groovyls  | groovy-language-server
-  lsp_config.groovyls.setup(default_config)
+  lsp_config.groovyls.setup(tbl_merge("force", default_config, {
+    -- The LSP needs a little help to find the groovy-language-server executable.
+    cmd = { "bash", language_servers_home .. "/groovy-language-server/groovy-language-server" },
+  }))
 end
 
 return {
