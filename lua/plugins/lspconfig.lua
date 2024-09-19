@@ -57,6 +57,10 @@ local function make_config()
   -- bashls    | bash-language-server
   lsp_config.bashls.setup(default_config)
 
+  -- LspConfig   | Mason
+  -- terraformls | terraform-ls
+  lsp_config.terraformls.setup(default_config)
+
   -- LspConfig | Mason
   -- groovyls  | groovy-language-server
   lsp_config.groovyls.setup(default_config)

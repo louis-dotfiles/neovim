@@ -23,6 +23,7 @@ local function make_config()
       "python",
       "scss",
       "sql",
+      "terraform",
       "toml",
       "tsx",
       "typescript",
