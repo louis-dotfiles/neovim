@@ -45,7 +45,6 @@ local function make_config()
   -- ansiblels | ansible-language-server
   lsp_config.ansiblels.setup(default_config)
 
-  -- Important note for Nixos installations: you need to install the 'pkgs.lua-language-server' Nixos package separately (meaning, without Mason or third party tools that are not aware of Nixos).
   -- LspConfig | Mason
   -- luals     | lua-language-server
   local luals_config = require("plugins/lsp_configs/luals")
