@@ -55,7 +55,7 @@ Here's the complete list of plugins and what we use them for:
 - nvim-highlight-colors: Creates color previews from color codes.
 - nvim-lspconfig: configure LSP servers.
 - nvim-surround: change surrounding "pairs".
-- nvim-tree.lua: replacement file explorer.
+- nvim-tree: replacement file explorer.
 - nvim-treesitter: syntax highlighting for various languages.
 - nvim-web-devicons: nice icons.
 - schemastore.nvim: provides schemas for JSON and YAML completion.

@@ -1,26 +1,57 @@
 # User Manual
 
-Some "getting" started tips and advice whil using this configuration.
-There are no earthshattering changes that will significantly alter your
-regular usage of Neovim. The new features are discrete and mostly "opt
-in".
+This is a collection of "getting" started tips for this configuration.
+
+There are no earthshattering changes that will significantly compromise a
+vanilla user experience. One exception is that `netrw`, the default file
+browser, has been replaced with a plugin. So you should use `<Space>e`, or
+`:NvimTreeOpen` to open the new file explorer now.
+
+
 
 ## General "discovery" advice
 
-You can have a look at the [keybindings overview](##keybindings-overview) below to get a taste of what new keybindings are available.
+You can have a look at the [keybindings overview](##keybindings-overview) below
+to get a taste of what new keybindings are available. Spending some time
+reading the `which-key` hints when you start typing keybindings should also
+help you learn the keybindings faster. The keybinds should all have some
+semantic meaning, so leaning them should not be too hard. e.g. `<Space>ff` to
+"Find Files".
 
-Spending some time to read the `which-key` hints when you start typing keybindings should also help you learn the keybindings faster.
-
-The keybinds should all have some semantic meaning, so leaning them should not be too hard. e.g. `<Leader>ff` to "Find Files".
-
-If you want to find a mapping based on some keyword you can also use `:Telescope keymaps` or `<Leader>fk` to "Find Keymaps" (starting to get the idea yet?).
+If you want to find a mapping based on some keyword you can also use
+`:Telescope keymaps` or `<Space>fk` to "Find Keymaps" (starting to get the
+idea yet?).
 
 
-In the end, you will have to learn by actually using the configuration. Such is the essence of Vim me thinks.
+In the end, you will have to learn by actually using the configuration. Such is
+the essence of Vim me thinks.
 
 Being a Neovim user means you will tinker with the configuration sooner rather
 than later. Once you feel like doing so, pay a visit to the [CONTRIBUTING.md
 documentation](./CONTRIBUTING.md) to learn more about the configuration.
+
+
+
+## The main features
+
+### Telescope
+
+It will considerably improve your workflow. Allowing you to easily search,
+find, and preview just about anything.
+
+### Harpoon
+
+You can now bookmark the handful of files you are currently spending time on,
+and quickly switch between them. This is much more handy than browsing through
+a tabline.
+
+### LSP support
+
+This is a "passive" feature, that doesn't require any adaptation from you. It
+provides completion for the main languages I use, but you can easily add some
+more.
+
+
 
 ## Keybindings overview
 
@@ -29,20 +60,22 @@ Window navigation has been simplified to use `<C-hjkl>`, saving some precious ke
 You can find more in the [./lua/keymaps.lua](./lua/keymaps.lua) file.
 Most new features will be available as keybindings:
 - `<leader>`, which is usually the `<Space>` key, will have most "heavy" features like:
-  - `f` finding stuff.
+  - `d`: LSP diagnostics.
+  - `f`: finding stuff with Telescope.
+    - `b`: open buffers, handy to get back to this file you can't remember the name of.
+    - `c`: highlight groups (colors).
     - `f`: files.
     - `g`: file contents, aka `grep`ing.
-    - `k`: keymaps.
     - `h`: help files.
-    - `c`: highlight groups (colors).
-  - `l` LSP operations (jumping to definitions, renaming, findng references ...).
-  - `p` plugins management.
-  - `h` harpoons management.
-  - `d` LSP diagnostics.
-  - `o` code outline (LSP symbols).
+    - `k`: keymaps.
+  - `h`: harpoons management.
+  - `l`: LSP operations (jumping to definitions, renaming, findng references ...).
+  - `m`: markdown preview stuff.
+  - `o`: code outline (LSP symbols).
+  - `p`: plugins management.
 - `g` has a few additional "editing" mappings:
-  - `x`: behaves much like the orignal keybinding. It will open links, even partial ones like `user/project` github references.
   - `a`: aligns / tabulates lines.
-  - `s`: splits / joins lists.
   - `c`: comment code.
+  - `s`: splits / joins lists.
+  - `x`: behaves much like the orignal keybinding. It will open links, even partial ones like `user/project` github references.
 
