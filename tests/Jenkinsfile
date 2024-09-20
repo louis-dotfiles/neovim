@@ -1,0 +1,40 @@
+pipeline {
+  environment {
+    project = 'test'
+  }
+  agent {
+    docker {
+      image 'node'
+    }
+  }
+  stages {
+    stage('Stage 1') {
+      steps {
+        notifyStarted('STARTED')
+      }
+    }
+    stage('Stage 2') {
+      steps {
+        script {
+          sh (
+            script: '''
+              echo 'Hello world.
+            '''
+          ).trim()
+        }
+      }
+    }
+    stage('Clean Workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+  }
+
+  post {
+    always {
+      echo 'DONE'
+    }
+  }
+}
+
