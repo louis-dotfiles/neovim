@@ -65,7 +65,9 @@ return {
           ["l"] = "open",
           ["L"] = "open_vsplit",
           ["h"] = "close_node",
-          ["H"] = "close_all_nodes",
+          ["C"] = "close_all_nodes",
+          ["<C-h>"] = "open_split",
+          ["<C-v>"] = "open_vsplit",
         }
       },
       components = {},
