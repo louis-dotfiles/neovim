@@ -30,6 +30,7 @@ return {
 
 
       { "<leader>l", group = "LSP", },
+      -- { "<leader>la", vim.lsp.buf.code_action,    desc = "Actions" },
       { "<leader>lh", vim.lsp.buf.hover,          desc = "Hint" },
       { "<leader>ld", vim.lsp.buf.definition,     desc = "Go to definition" },
       { "<leader>li", vim.lsp.buf.implementation, desc = "Implementation" },
