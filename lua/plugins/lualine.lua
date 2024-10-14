@@ -37,7 +37,7 @@ return {
 
       -- Right side.
       lualine_x = { "harpoon2" },
-      lualine_y = { lsp_module },
+      lualine_y = { "filetype", lsp_module },
       lualine_z = {"progress"},
     },
   },
