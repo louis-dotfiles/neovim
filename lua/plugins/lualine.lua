@@ -1,6 +1,5 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
--- TODO: doesn't update properly when changing buffers?
 local function lsp_module()
   local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
 
@@ -13,7 +12,7 @@ local function lsp_module()
     vim.tbl_values(lsp_clients)
   )
 
-  return "  " .. table.concat(client_names, '|')
+  return " " .. table.concat(client_names, '|')
 end
 
 return {
@@ -28,7 +27,7 @@ return {
   opts = {
     sections = {
       -- Left side.
-      lualine_a = {"mode"},
+      lualine_a = { "mode" },
       lualine_b = {
         { "branch", icon = "" },
         "diff",
@@ -38,7 +37,7 @@ return {
       -- Right side.
       lualine_x = { "harpoon2" },
       lualine_y = { "filetype", lsp_module },
-      lualine_z = {"progress"},
+      lualine_z = { "progress" },
     },
   },
 }
