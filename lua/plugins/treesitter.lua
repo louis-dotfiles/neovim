@@ -4,34 +4,7 @@ local function make_config()
   local treesitter = require("nvim-treesitter.configs")
 
   treesitter.setup({
-    ensure_installed = {
-      "bash",
-      "css",
-      "csv",
-      "gitcommit",
-      "gitignore",
-      "go",
-      "groovy",
-      "html",
-      "javascript",
-      "json",
-      "jsonc",
-      "lua",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "python",
-      "scss",
-      "sql",
-      "terraform",
-      "toml",
-      "tsx",
-      "typescript",
-      "vim",
-      "vimdoc",
-      "xml",
-      "yaml",
-    },
+    ensure_installed = "all",
 
     highlight = {
       enable = true,
