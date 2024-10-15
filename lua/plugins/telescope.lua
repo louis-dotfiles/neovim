@@ -14,6 +14,15 @@ return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.6",
   dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    defaults = {
+      sorting_strategy = "ascending",
+      layout_strategy = "horizontal",
+      layout_config = {
+        prompt_position = "top",
+      },
+    },
+  },
   config = make_config,
   keys = {
     {
