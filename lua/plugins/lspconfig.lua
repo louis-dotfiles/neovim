@@ -72,6 +72,14 @@ local function make_config()
     -- The LSP needs a little help to find the groovy-language-server executable.
     cmd = { "bash", language_servers_home .. "/groovy-language-server/groovy-language-server" },
   }))
+
+  -- LspConfig | Mason
+  -- sqlls     | sqlls
+  lsp_config.sqlls.setup(default_config)
+
+  -- LspConfig | Mason
+  -- pylsp     | python-lsp-server
+  lsp_config.pylsp.setup(default_config)
 end
 
 return {
