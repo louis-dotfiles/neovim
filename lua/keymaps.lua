@@ -11,6 +11,9 @@ set_keymap("i", "<A-j>", "<Down>",  keymap_opts)
 set_keymap("i", "<A-k>", "<Up>",    keymap_opts)
 set_keymap("i", "<A-l>", "<Right>", keymap_opts)
 
+set_keymap("i", "<A-S-h>", "<S-Left>", keymap_opts)
+set_keymap("i", "<A-S-l>", "<S-Right>", keymap_opts)
+
 -- Ctrl + hjkl to change window panes in normal mode.
 set_keymap("n", "<C-h>", "<C-w>h", keymap_opts)
 set_keymap("n", "<C-j>", "<C-w>j", keymap_opts)
