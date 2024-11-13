@@ -1,7 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 -- LspConfig documentation for setting up each leanguage server.
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 --
 -- Mason-lspconfig documentation about the correspondance between Mason language server names
 -- and lspconfig language server names.
