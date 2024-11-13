@@ -13,7 +13,7 @@ local function lsp_module()
     vim.tbl_values(lsp_clients)
   )
 
-  return " " .. table.concat(client_names, '|')
+  return " " .. table.concat(client_names, "|")
 end
 
 return {
