@@ -4,12 +4,17 @@
 local function lsp_module()
   local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
 
+  -- Aliases for LSPs with long names.
+  local shortnames = {
+    jedi_language_server = "jedi",
+  }
+
   if #lsp_clients == 0 then
     return "󰒲 "
   end
 
   local client_names = vim.tbl_map(
-    function(item) return item.name end,
+    function(item) return shortnames[item.name] or item.name end,
     vim.tbl_values(lsp_clients)
   )
 
