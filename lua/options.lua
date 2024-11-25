@@ -43,3 +43,7 @@ vim.opt.laststatus = 3
 
 vim.opt.showmode = false
 
+-- global-local options.
+vim.go.scrolloff = 6
+vim.go.sidescrolloff = 10
+
