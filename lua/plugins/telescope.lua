@@ -56,6 +56,11 @@ return {
       desc = "Colors (highlight groups)",
     },
     {
+      "<Leader>fr",
+      "<cmd>Telescope registers<cr>",
+      desc = "Registers",
+    },
+    {
       "<Leader>fn",
       "<cmd>Telescope notify<cr>",
       desc = "Notifications",
