@@ -15,3 +15,5 @@ require "keymaps"
 require "abbreviations"
 require "filetypes"
 
+require "personal_plugins"
+
