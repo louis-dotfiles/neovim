@@ -1,0 +1,126 @@
+local extmarks = require("personal_plugins.statuscolumn.extmarks")
+local utils = require("personal_plugins.statuscolumn.utils")
+local td = require("throttle-debounce")
+
+
+local M = {}
+
+local border_icon = "▌"
+local cached_ns_id = nil
+local cache = utils.Cache:new()
+local fresh_signs_available = false
+
+
+---Get the extmarks namespace id of the Gitsigns plugin.
+---@return integer
+local function get_ns_id()
+  if not cached_ns_id then
+    cached_ns_id = vim.api.nvim_get_namespaces()["gitsigns_signs_"]
+  end
+
+  return cached_ns_id
+end
+
+
+---Makes a dictionary indexed by line number for the git signs.
+---@return table<number, vim.api.keyset.extmark_details[]>
+local function get_git_sign_details()
+  local ns_id = get_ns_id()
+  local signs = extmarks.get_signs_from_extmarks(ns_id)
+
+  local signs_details_by_line = {}
+  for _, sign in pairs(signs) do
+    local line_number = sign[2] + 1
+    local sign_detail = sign[4]
+    signs_details_by_line[line_number] = { sign_detail }
+  end
+
+  return signs_details_by_line
+end
+
+
+-- local calls = 0
+
+
+---comment
+---@param context Context
+---@return table<number, vim.api.keyset.extmark_details[]>
+local function get_cached_signs(context)
+  local sign_details = cache:get_signs(context)
+  if not sign_details then
+    -- calls = calls + 1
+    -- print("total ext calls", calls)
+    sign_details = get_git_sign_details()
+    cache:set_signs(context, sign_details)
+    fresh_signs_available = false
+  end
+
+  return sign_details
+end
+
+
+---Given a list of Diagnostic symbols, returns the symbol with the highest severity.
+---@param sign_details vim.api.keyset.extmark_details[]
+---@return string
+local function get_git_symbol_from_sign_details(sign_details)
+    if not sign_details then
+      return utils.highlight_text("NonText", border_icon)
+    end
+
+    -- There's at most one git sign for a given. Ever.
+    return utils.highlight_text(sign_details[1].sign_hl_group, border_icon)
+end
+
+
+--- https://www.reddit.com/r/neovim/comments/10bmy9w/comment/j4dh2i8/
+---Generates the symbol to be used in the gitsign colummn.
+---@param context Context
+---@return string
+function M.generate(context)
+  local symbol = nil
+  if not fresh_signs_available then
+    symbol = cache:get_symbol(context)
+  end
+
+  if not symbol then
+    local git_signs = get_cached_signs(context)
+
+    local sign_details = git_signs[context.lnum]
+    symbol = get_git_symbol_from_sign_details(sign_details)
+    cache:set_symbol(context, symbol)
+  end
+
+  return symbol
+end
+
+
+-- This is a debounced function, it will only trigger 200ms after the last call, no matter how many times you call it.
+local clear_cache = td.debounce_trailing(function(buffer_number)
+  cache:clear_buffer(buffer_number)
+  fresh_signs_available = true
+end, 100)
+
+
+-- local timer = vim.loop.new_timer()
+-- print(vim.inspect(timer))
+
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'GitSignsUpdate',
+  callback = function(args)
+    -- print("gitsigns update", vim.inspect(args))
+    clear_cache(args.buf)
+  end,
+})
+
+
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(args)
+    -- print("bufdelete", vim.inspect(args))
+    cache:forget_buffer(args.buf)
+  end,
+})
+
+
+return M
+
