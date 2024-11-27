@@ -77,9 +77,9 @@ local function make_config()
   -- sqlls     | sqlls
   lsp_config.sqlls.setup(default_config)
 
-  -- LspConfig            | Mason
-  -- jedi_language_server | jedi-language-server
-  lsp_config.jedi_language_server.setup(default_config)
+  -- LspConfig    | Mason
+  -- basedpyright | basedpyright
+  lsp_config.basedpyright.setup(default_config)
 end
 
 return {
