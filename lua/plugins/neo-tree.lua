@@ -26,6 +26,7 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   opts = {
+    enable_git_status = false, -- Too distracting.
     default_component_configs = {
       diagnostics = {
         symbols = {
