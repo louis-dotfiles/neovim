@@ -169,11 +169,13 @@ Simply be wary that some seamingly unrelated features may come from the same plu
 - [x] keybinding for clearing all harpoons
 - [x] code outline
 - [x] wider outline window
-- [ ] fix the markdown preview trigger
+- [x] fix the markdown preview trigger
+- [ ] statuscolumn: `signs > number > gitsign+border`
 - maybe?
   - [ ] 'noice' for nicer UI and hide the command line? No. Too invasive for me.
   - [ ] more text objects?
   - [ ] leap?
-  - [ ] nvim-notify
+  - [x] nvim-notify
   - [ ] use telescope for quickfix list?
+  - [ ] Telescope actions? (some broken stuff for now).
 
