@@ -28,6 +28,7 @@ return {
   opts = {
     enable_git_status = false, -- Too distracting.
     default_component_configs = {
+      name = { trailing_slash = true },
       diagnostics = {
         symbols = {
           error = "",
