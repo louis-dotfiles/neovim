@@ -26,6 +26,16 @@ return {
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
   opts = {
+    default_component_configs = {
+      diagnostics = {
+        symbols = {
+          error = "",
+          warn = "",
+          hint = "󰌵",
+          info = "",
+        },
+      },
+    },
     source_selector = {
       winbar = true,
       statusline = false,
