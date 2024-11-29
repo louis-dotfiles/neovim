@@ -27,7 +27,8 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.termguicolors = true
 
-vim.opt.foldmethod = "indent"
+-- vim.opt.foldmethod = "indent"
+-- vim.opt.foldlevelstart = 99
 
 vim.opt.list = true
 vim.opt.listchars = {

@@ -19,3 +19,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   { border = "rounded" }
 )
 
+vim.lsp.inlay_hint.enable()
+

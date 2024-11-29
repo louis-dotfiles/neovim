@@ -1,11 +1,87 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 
+local function get_visual()
+  local _, line_start, column_start = unpack(vim.fn.getpos('v'))
+  local _, line_end, column_end = unpack(vim.fn.getpos('.'))
+
+  return vim.api.nvim_buf_get_text(
+    0,
+    line_start - 1,
+    column_start - 1,
+    line_end - 1,
+    column_end,
+    {}
+  )
+end
+
+local function search_selection()
+  local telescope_builtins = require("telescope.builtin")
+  local actions = require("telescope.actions")
+
+  local visual = get_visual()
+
+  if vim.tbl_count(visual) > 1 then return end
+
+  print(vim.inspect(visual))
+
+  telescope_builtins.live_grep({
+    additional_args = {},
+  })
+end
+
 local function make_config(_, opts)
   local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  -- local add_to_trouble = require("trouble.sources.telescope").add
+  -- local open_with_trouble = require("trouble.sources.telescope").open
+
+  local function test(prompt_bufnr)
+    print("prompt_bufnr", vim.inspect(prompt_bufnr))
+    -- actions.delete_buffer(buffer_number)
+    actions.delete_buffer(prompt_bufnr)
+  end
+
+  local common_mappings = {
+    i = {
+      ["<C-x>"] = test,
+      -- ["<C-x>"] = "delete_buffer",
+    }
+  }
+
+  local more_opts = {
+    defaults = {
+      mappings = {
+        i = {
+          -- CLear some default mappings.
+          ["<C-u>"] = false,
+          ["<C-d>"] = false,
+          ["<C-x>"] = false,
+
+          ["<C-h>"] = actions.select_horizontal,
+          -- ["<C-t>"] = add_to_trouble,
+        },
+        n = {
+          -- ["<C-t>"] = add_to_trouble,
+        },
+      },
+    },
+    pickers = {
+      buffers = {
+        mappings = common_mappings,
+      },
+      find_files = {
+        mappings = common_mappings,
+      },
+      live_grep = {
+        mappings = common_mappings,
+      },
+    },
+  }
 
   -- Load extensions here.
 
-  telescope.setup(opts)
+  telescope.setup(vim.tbl_deep_extend("force", opts, more_opts))
 end
 
 
@@ -65,6 +141,12 @@ return {
       "<cmd>Telescope notify<cr>",
       desc = "Notifications",
     },
+    {
+      "<Leader>fv",
+      search_selection,
+      mode = { "n", "v", },
+      desc = "Visual selection",
+    }
   },
   cmd = {
     "Telescope",
