@@ -27,6 +27,9 @@ return {
       -- Brighter visual selection, more visible when selecting individual characters like surrounding quotes.
       Visual = { bg = "#252559" },
 
+      -- Scrollbar handle in nvim-cmp popups.
+      PmenuThumb = { bg = "#FFCB6B" },
+
       -- Visible borders.
       FloatBorder = { fg = "#FFCB6B" },
       LspInfoBorder = { fg = "#FFCB6B" },
