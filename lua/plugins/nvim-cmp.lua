@@ -6,6 +6,17 @@
 local function make_config()
   local cmp = require("cmp")
 
+  -- Show the cmp menu if it's not already visible, accepts the sekected option if the menu is visible.
+  local function completion_func()
+    if cmp.visible() then
+      cmp.confirm({ -- Accept completion.
+        behavior = cmp.ConfirmBehavior.Replace,
+      })
+    else
+      cmp.complete() -- Show cmp menu.
+    end
+  end
+
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -21,12 +32,13 @@ local function make_config()
     mapping = cmp.mapping.preset.insert({
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.abort(),
+      --
       ["<C-q>"] = cmp.mapping.abort(),
-      ["<C-CR>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-      }),
+      -- Without this mapping, <C-[> leaves cmp AND goes to normal. This mapping makes it so it only leaves cmp.
+      ["<C-[>"] = cmp.mapping.abort(),
+
+      ["<C-Space>"] = completion_func,
+      ["<C-CR>"] = completion_func,
     }),
     sources = cmp.config.sources(
       {
