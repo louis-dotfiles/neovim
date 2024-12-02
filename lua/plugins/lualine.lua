@@ -38,7 +38,17 @@ return {
         { "branch", icon = "" },
         "diff",
       },
-      lualine_c = { "diagnostics" },
+      lualine_c = {
+        {
+          "diagnostics",
+          symbols = {
+            error = ' ',
+            warn = ' ',
+            hint = '󰌵 ',
+            info = ' ',
+          },
+        },
+      },
 
       -- Right side.
       lualine_x = { "harpoon2" },
