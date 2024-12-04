@@ -21,6 +21,28 @@ local function lsp_module()
   return " " .. table.concat(client_names, "|")
 end
 
+
+---Returns a visual indication of the search position and total results.
+---e.g. 
+---
+---@return string
+local function search_count_module()
+  if vim.v.hlsearch ~= 1 then return '' end
+
+  local icon = " "
+  local search_info = vim.fn.searchcount({ maxcount = 0 })
+
+  if search_info.incomplete == 1 then
+    return icon .. ''
+  end
+
+  local total_char_length = string.len(search_info.total)
+  local text = icon .. string.format('%0' .. total_char_length .. 'd/%d', search_info.current, search_info.total)
+
+  return text
+end
+
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -53,7 +75,7 @@ return {
       -- Right side.
       lualine_x = { "harpoon2" },
       lualine_y = { "filetype", lsp_module },
-      lualine_z = { "progress" },
+      lualine_z = { search_count_module, "progress" },
     },
   },
 }

@@ -43,6 +43,10 @@ vim.opt.laststatus = 3
 
 vim.opt.showmode = false
 
+
+vim.o.shortmess = "ltToOCFsS"
+
+
 -- global-local options.
 vim.go.scrolloff = 6
 vim.go.sidescrolloff = 10
