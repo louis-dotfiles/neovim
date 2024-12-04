@@ -61,7 +61,14 @@ return {
       lualine_a = { "mode" },
       lualine_b = {
         { "branch", icon = "" },
-        "diff",
+        {
+          "diff",
+          symbols = {
+            added = " ",
+            modified = " ",
+            removed = " ",
+          },
+        },
       },
       lualine_c = {
         {
