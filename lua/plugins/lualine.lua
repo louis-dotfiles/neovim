@@ -1,6 +1,9 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
--- Simply displays which LSP are attached to the current buffer.
+---Simply displays which LSP are attached to the current buffer.
+---e.g.  lua_ls
+---
+---@return string
 local function lsp_module()
   local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
 
