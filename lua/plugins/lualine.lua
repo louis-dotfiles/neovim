@@ -25,6 +25,48 @@ local function lsp_module()
 end
 
 
+---Returns a visual indication of the visual selection.
+---e.g. 󰒉 3l
+---e.g. 󰒉 -11c
+---e.g. 󰒉 3l x 2c
+---
+---@return string
+local function visual_selection_module()
+  local mode = vim.api.nvim_get_mode().mode
+
+  local active_modes = { "v", "V", "" }
+  if not vim.tbl_contains(active_modes, mode) then return "" end
+
+  local icon = "󰒉 "
+  local _, line_start, col_start = unpack(vim.fn.getpos("v"))
+  local _, line_end, col_end = unpack(vim.fn.getpos("."))
+
+  local line_diff = line_end - line_start
+  local col_diff = col_end - col_start
+
+  local line_count = line_diff >= 0 and line_diff + 1 or line_diff - 1
+  local col_count = col_diff >= 0 and col_diff + 1 or col_diff - 1
+
+  local text = ""
+  if mode == "v" then
+    -- print("charwise")
+    if line_diff ~= 0 then
+      text = tostring(line_count) .. "l"
+    else
+      text = tostring(col_count) .. "c"
+    end
+  elseif mode == "V" then
+    -- print("linewise")
+    text = tostring(line_count) .. "l"
+  else
+    -- print("blockwise?")
+    text = line_count .. "l x " .. col_count .. "c"
+  end
+
+  return icon .. text
+end
+
+
 ---Returns a visual indication of the search position and total results.
 ---e.g. 
 ---
@@ -85,7 +127,7 @@ return {
       -- Right side.
       lualine_x = { "harpoon2" },
       lualine_y = { "filetype", lsp_module },
-      lualine_z = { search_count_module, "progress" },
+      lualine_z = { visual_selection_module, search_count_module, "progress" },
     },
   },
 }

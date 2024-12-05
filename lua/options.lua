@@ -45,6 +45,7 @@ vim.opt.showmode = false
 
 
 vim.o.shortmess = "ltToOCFsS"
+vim.o.showcmd = false
 
 
 -- global-local options.
