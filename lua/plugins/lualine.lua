@@ -77,14 +77,15 @@ local function search_count_module()
   local icon = " "
   local search_info = vim.fn.searchcount({ maxcount = 0 })
 
+  local text = ''
   if search_info.incomplete == 1 then
-    return icon .. ''
+    text = ''
+  else
+    local total_char_length = string.len(search_info.total)
+    text = string.format('%0' .. total_char_length .. 'd/%d', search_info.current, search_info.total)
   end
 
-  local total_char_length = string.len(search_info.total)
-  local text = icon .. string.format('%0' .. total_char_length .. 'd/%d', search_info.current, search_info.total)
-
-  return text
+  return icon .. text
 end
 
 
