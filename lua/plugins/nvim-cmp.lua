@@ -32,13 +32,11 @@ local function make_config()
     mapping = cmp.mapping.preset.insert({
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      --
-      ["<C-q>"] = cmp.mapping.abort(),
-      -- Without this mapping, <C-[> leaves cmp AND goes to normal. This mapping makes it so it only leaves cmp.
-      ["<C-[>"] = cmp.mapping.abort(),
-
-      ["<C-Space>"] = completion_func,
-      ["<C-CR>"] = completion_func,
+      ['<C-Space>'] = cmp.mapping.complete(), -- Show cmp menu.
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<C-y>"] = cmp.mapping.confirm({ -- Accept completion.
+        behavior = cmp.ConfirmBehavior.Replace,
+      }),
     }),
     sources = cmp.config.sources(
       {
