@@ -12,6 +12,7 @@ local fresh_signs_available = false
 
 
 ---Get the extmarks namespace id of the Gitsigns plugin.
+---
 ---@return integer
 local function get_ns_id()
   if not cached_ns_id then
@@ -23,6 +24,7 @@ end
 
 
 ---Makes a dictionary indexed by line number for the git signs.
+---
 ---@return table<number, vim.api.keyset.extmark_details[]>
 local function get_git_sign_details()
   local ns_id = get_ns_id()
@@ -39,10 +41,8 @@ local function get_git_sign_details()
 end
 
 
--- local calls = 0
-
-
----comment
+---Gets the signs from cache or, if not present, from the extmarks.
+---
 ---@param context Context
 ---@return table<number, vim.api.keyset.extmark_details[]>
 local function get_cached_signs(context)
@@ -58,6 +58,7 @@ end
 
 
 ---Given a list of Diagnostic symbols, returns the symbol with the highest severity.
+---
 ---@param sign_details vim.api.keyset.extmark_details[]
 ---@return string
 local function get_git_symbol_from_sign_details(sign_details)
@@ -70,8 +71,8 @@ local function get_git_symbol_from_sign_details(sign_details)
 end
 
 
---- https://www.reddit.com/r/neovim/comments/10bmy9w/comment/j4dh2i8/
 ---Generates the symbol to be used in the gitsign colummn.
+---
 ---@param context Context
 ---@return string
 function M.generate(context)
@@ -92,7 +93,7 @@ function M.generate(context)
 end
 
 
--- This is a debounced function, it will only trigger 200ms after the last call, no matter how many times you call it.
+-- This is a debounced function, it will only trigger 100ms after the last call, no matter how many times you call it.
 local clear_cache = td.debounce_trailing(function(buffer_number)
   cache:clear_buffer(buffer_number)
   fresh_signs_available = true
@@ -119,7 +120,8 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 
-vim.api.nvim_create_autocmd('BufDelete', {
+-- No sense in keeping the cache for a buffer that's no longer loaded.
+vim.api.nvim_create_autocmd("BufDelete", {
   callback = function(args)
     -- print("bufdelete", vim.inspect(args))
     cache:forget_buffer(args.buf)

@@ -4,6 +4,7 @@
 -- to the mappings groups, and define plugin independent mappings.
 -- Hence this small configuration script.
 
+
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -27,6 +28,7 @@ return {
       { "<leader>f", group = "Find" },
       { "<leader>h", group = "Harpoon" },
       { "<leader>s", group = "Swap" },
+      -- { "<leader>t", group = "Toggle" },
 
 
 
