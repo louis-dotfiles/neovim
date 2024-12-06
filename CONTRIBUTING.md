@@ -30,6 +30,7 @@ Exceptions to all of the above rules are acceptable as long as they remain excep
 ## Plugins
 
 Here's the complete list of plugins and what we use them for:
+- action-preview: preview the effect of LSP actions.
 - align: tabulate text.
 - barbecue: file and LSP information at the top of every buffer.
 - cmp-buffer: completes buffer names.
@@ -37,8 +38,10 @@ Here's the complete list of plugins and what we use them for:
 - cmp-nvim-lsp: lsp completion for code.
 - cmp-path: completes paths.
 - comment.nvim: comment code.
-- dressing: nices prompt popups.
-- guess-indent.nvim: automatically sets the indentation level based on the current file indentation pattern.
+- dressing: nicer prompt popups.
+- gitsigns: some level of git integration, and symbols.
+- guess-indent.nvim: automatically sets the indentation level based on the
+  current file indentation pattern.
 - gx.nvim: replacement `gx` to open links in your browser.
 - harpoon-lualine: harpoon indicators in the statusline.
 - harpoon: "bookmark" files and easily switch to them.
@@ -46,20 +49,28 @@ Here's the complete list of plugins and what we use them for:
 - lazy.nvim: the plugins manager.
 - lualine.nvim: status line at the bottom of the screen.
 - luasnip: snippets.
+- markview: markdown preview.
 - markview: preview markdown files.
 - mason-lspconfig.nvim: adapter between Mason and lspconfig.
 - mason.nvim: installer for language servers.
 - material.nvim: colorscheme.
 - mini.align: easily align / tabulate code.
+- neo-tree: replacement file explorer.
+- notify: nicer notification popups.
 - nvim-cmp: provide a completion window.
 - nvim-highlight-colors: Creates color previews from color codes.
 - nvim-lspconfig: configure LSP servers.
 - nvim-surround: change surrounding "pairs".
-- nvim-tree: replacement file explorer.
 - nvim-treesitter: syntax highlighting for various languages.
 - nvim-web-devicons: nice icons.
+- smear-cursor: the cursor leaves a temporary "trail" while moving. Handy
+  to better track cursor movements.
 - schemastore.nvim: provides schemas for JSON and YAML completion.
 - telescope.nvim: fuzzy finder.
+- treesitter-textobjects: creates additional text objects like
+  "functions", "parameters", "classes", "scopes".
+- treesitter: Abstract Syntax Tree engine, for better syntax highlighting
+  and other fancy things.
 - treesj: split and join lines in a list.
 - trouble.nvim: nice diagnostic summary window and code outline.
 - which-key.nvim: reminder tool for keymaps.
@@ -157,7 +168,7 @@ Simply be wary that some seamingly unrelated features may come from the same plu
 - [~] Understand the nuances between the various references / incoming_calls, implementation / definition
 - [x] current indentation scope highlight not working. > Theme was to blame.
 - [x] hex color codes highlighting
-- [ ] image preview tool
+- [ ] image preview tool. This will likely depend on terminal capabilities.
 - [x] tabulation tool
 - [x] surround tool
 - [x] border for lazy UI
@@ -170,12 +181,15 @@ Simply be wary that some seamingly unrelated features may come from the same plu
 - [x] code outline
 - [x] wider outline window
 - [x] fix the markdown preview trigger
-- [ ] statuscolumn: `signs > number > gitsign+border`
+- [x] more text objects?
+- [~] statuscolumn: `signs > number > gitsign+border`, the gitsigns do not update when scrolling.
+- [ ] Nice window with all of my "toggle" keymaps. (Snacks.toggle ?)
 - maybe?
   - [ ] 'noice' for nicer UI and hide the command line? No. Too invasive for me.
-  - [ ] more text objects?
   - [ ] leap?
-  - [x] nvim-notify
+  - [~] nvim-notify. Flickering cursor issues.
   - [ ] use telescope for quickfix list?
   - [ ] Telescope actions? (some broken stuff for now).
+  - [ ] markdown table editing.
+  - [ ] neogit? Must have 3 panes view and linewise selection of changes.
 

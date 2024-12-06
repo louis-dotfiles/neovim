@@ -5,7 +5,7 @@ This is a collection of "getting" started tips for this configuration.
 There are no earthshattering changes that will significantly compromise a
 vanilla user experience. One exception is that `netrw`, the default file
 browser, has been replaced with a plugin. So you should use `<Space>e`, or
-`:NvimTreeOpen` to open the new file explorer now.
+`:Neotree left` to open the new file explorer now.
 
 
 
@@ -37,7 +37,11 @@ documentation](./CONTRIBUTING.md) to learn more about the configuration.
 ### Telescope
 
 It will considerably improve your workflow. Allowing you to easily search,
-find, and preview just about anything.
+find, and preview just about anything. What I mostly use it for:
+- `grep`ing. Aka project-wide word search.
+- Finding files.
+- Finding buffers.
+- Finding `help` pages (incredibly handy).
 
 ### Harpoon
 
@@ -45,12 +49,18 @@ You can now bookmark the handful of files you are currently spending time on,
 and quickly switch between them. This is much more handy than browsing through
 a tabline.
 
+The typical use case is to "harpoon" a handful of files you need to come back
+to very frequently.
+
 ### LSP support
 
 This is a "passive" feature, that doesn't require any adaptation from you. It
 provides completion for the main languages I use, but you can easily add some
 more.
 
+Select the options you want with `<C-n>` and `<C-p>`, then keep typing, or hit
+`<Esc>` if you are done.  
+Snippets need to be "activated" with `<C-y>`.
 
 
 ## Keybindings overview
@@ -58,6 +68,7 @@ more.
 Window navigation has been simplified to use `<C-hjkl>`, saving some precious keystrokes.
 
 You can find more in the [./lua/keymaps.lua](./lua/keymaps.lua) file.
+
 Most new features will be available as keybindings:
 - `<leader>`, which is usually the `<Space>` key, will have most "heavy" features like:
   - `d`: LSP diagnostics.
@@ -73,6 +84,7 @@ Most new features will be available as keybindings:
   - `m`: markdown preview stuff.
   - `o`: code outline (LSP symbols).
   - `p`: plugins management.
+  - `s`: swaping function arguments.
 - `g` has a few additional "editing" mappings:
   - `a`: aligns / tabulates lines.
   - `c`: comment code.
