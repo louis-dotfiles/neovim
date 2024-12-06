@@ -1,5 +1,6 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
+
 ---Simply displays which LSP are attached to the current buffer.
 ---e.g.  lua_ls
 ---
