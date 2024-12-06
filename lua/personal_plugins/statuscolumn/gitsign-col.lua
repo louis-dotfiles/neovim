@@ -47,9 +47,7 @@ end
 ---@return table<number, vim.api.keyset.extmark_details[]>
 local function get_cached_signs(context)
   local sign_details = cache:get_signs(context)
-  if not sign_details then
-    -- calls = calls + 1
-    -- print("total ext calls", calls)
+  if fresh_signs_available or not sign_details then
     sign_details = get_git_sign_details()
     cache:set_signs(context, sign_details)
     fresh_signs_available = false
@@ -101,12 +99,19 @@ local clear_cache = td.debounce_trailing(function(buffer_number)
 end, 100)
 
 
--- local timer = vim.loop.new_timer()
--- print(vim.inspect(timer))
+-- No need to clear the cache because the buffer hasn't changed.
+-- However. Gitsigns only generates the signs for the visible portion of the buffer. So if we scroll around, we need to make sure we fetch the seigns again.
+vim.api.nvim_create_autocmd("WinScrolled", {
+  callback = function()
+    -- print("gitsigns update", vim.inspect(args))
+    fresh_signs_available = true
+  end,
+})
 
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'GitSignsUpdate',
+-- :help gitsigns-events
+vim.api.nvim_create_autocmd("User", {
+  pattern = { "GitSignsUpdate", "GitSignsChanged" },
   callback = function(args)
     -- print("gitsigns update", vim.inspect(args))
     clear_cache(args.buf)
