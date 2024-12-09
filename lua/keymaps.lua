@@ -35,6 +35,7 @@ set_keymap("c", "<A-S-l>", "<S-Right>", keymap_opts)
 set_keymap("c", "<A-j>", "<Down>", keymap_opts)
 set_keymap("c", "<A-k>", "<Up>", keymap_opts)
 
+set_keymap("n", "yc", "yygccp", { remap = true })
 
 -- Function keys mappings. They are rarely used for anything so ... "free real estate"?
 set_keymap("n", "<F1>", "<cmd>Telescope help_tags<cr>", keymap_opts)
