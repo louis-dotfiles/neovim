@@ -21,6 +21,12 @@ return {
       layout_config = {
         prompt_position = "top",
       },
+      mappings = {
+        i = {
+          -- Unmap the default <C-u> telescope mapping so that I can clear the prompt.
+          ["<C-u>"] = false,
+        },
+      },
     },
   },
   config = make_config,
