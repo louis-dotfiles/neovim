@@ -28,6 +28,8 @@ set_keymap("n", "<S-l>", "$", keymap_opts)
 -- Alt + hl to move around while typing a command.
 set_keymap("c", "<A-h>", "<Left>", keymap_opts)
 set_keymap("c", "<A-l>", "<Right>", keymap_opts)
+set_keymap("c", "<A-S-h>", "<S-Left>", keymap_opts)
+set_keymap("c", "<A-S-l>", "<S-Right>", keymap_opts)
 
 -- Alt + jk to browse the command history while typing a command.
 set_keymap("c", "<A-j>", "<Down>", keymap_opts)
