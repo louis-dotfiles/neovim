@@ -50,7 +50,7 @@ local function get_text(context)
       text = "│"
     end
   else
-    if context.is_current_buffer then -- Relative or normal line numbers for current buffer.
+    if context.is_current_window then -- Relative or normal line numbers for current buffer.
       if context.is_cursor_line then
         text = tostring(context.cursor_line)
       elseif vim.o.relativenumber then
@@ -75,7 +75,7 @@ local function get_highlight_group(context)
   local cursorline_hl = "CursorLineNr"
   local line_hl = "LineNr"
 
-  if context.is_cursor_line and context.is_current_buffer then
+  if context.is_cursor_line and context.is_current_window then
     return cursorline_hl
   else
     return line_hl
