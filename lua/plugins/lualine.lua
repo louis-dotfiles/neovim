@@ -100,6 +100,9 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
+    options = {
+      globalstatus = true,
+    },
     sections = {
       -- Left side.
       lualine_a = { "mode" },
