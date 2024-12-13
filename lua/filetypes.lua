@@ -3,6 +3,7 @@ vim.filetype.add({
   pattern = {
     -- Map the *Jenkinsfile* files to the 'groovy' filetype.
     [".*Jenkinsfile.*"] = "groovy",
+    [".*git/config"] = "gitconfig",
   },
   filename = {
     ["condarc"] = "yaml",
