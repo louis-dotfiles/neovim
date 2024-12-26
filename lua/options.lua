@@ -48,6 +48,9 @@ vim.o.shortmess = "ltToOCFsS"
 vim.o.showcmd = false
 
 
+vim.wo.colorcolumn = "80,100,110"
+
+
 -- global-local options.
 vim.go.scrolloff = 6
 vim.go.sidescrolloff = 10
