@@ -62,9 +62,6 @@ end
 ---@param context Context
 ---@return string
 function M.generate(context)
-  -- No signs in insert mode.
-  if context.vim_mode == 'i' then return ' ' end
-
   local symbol = cache:get_symbol(context)
 
   if not symbol then
@@ -90,13 +87,11 @@ end
 --
 -- A redraw call apparently isn't needed. I suppose it's already queued when we
 -- get the event.
-vim.api.nvim_create_autocmd('DiagnosticChanged', {
+--
+-- And we also need a little help when levaing insert mode, apparently the
+-- diagnostics changed event isn't fired.
+vim.api.nvim_create_autocmd({ 'DiagnosticChanged', 'InsertLeave' }, {
   callback = function(args)
-    -- The event is also triggered for every new character typed in insert mode.
-    -- We do not care about updating the signs every time we type something.
-    local mode_response = vim.api.nvim_get_mode()
-    if mode_response.mode == 'i' then return end
-
     cache:clear_buffer(args.buf)
   end,
 })
