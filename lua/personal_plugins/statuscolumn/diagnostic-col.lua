@@ -8,6 +8,7 @@ local fresh_signs_available = false
 
 
 ---Given a list of Diagnostic symbols, returns the symbol with the highest severity.
+---
 ---@param sign_details vim.api.keyset.extmark_details[]
 ---@return string
 local function get_diagnostic_symbol_for_sign_details(sign_details)
@@ -41,16 +42,13 @@ local function get_diagnostic_symbol_for_sign_details(sign_details)
 end
 
 
--- local calls = 0
-
 ---comment
+---
 ---@param context Context
 ---@return table<number, vim.api.keyset.extmark_details[]>
 local function get_cached_signs(context)
   local sign_details = cache:get_signs(context)
-  if not sign_details then
-    -- calls = calls + 1
-    -- print("total ext calls", calls)
+  if fresh_signs_available or not sign_details then
     sign_details = extmarks.get_diagnostic_sign_details()
     cache:set_signs(context, sign_details)
     fresh_signs_available = false
@@ -61,6 +59,7 @@ end
 
 
 ---Generate the diagnostic part of a status column.
+---
 ---@param context Context
 ---@return string
 function M.generate(context)

@@ -1,12 +1,12 @@
 
-
 local M = {}
 
 
 ---Highlight a string with the given highlight group.
----@param highlight_group string
----@param text string
----@return string
+---
+---@param highlight_group string Highlight group name.
+---@param text string String to be hihglighted.
+---@return string highlighted_string
 function M.highlight_text(highlight_group, text)
   return table.concat({ "%#", highlight_group, "#", text, "%*" })
 end
@@ -15,6 +15,7 @@ end
 ---Caching structure for signs.
 ---signs_cache is buffer_number -> changedtick -> line_number -> sign_details.
 ---symbols_cache is buffer_number -> line_number -> symbol.
+---
 ---@class Cache
 ---@field signs_cache table<number, table<number, table<number, vim.api.keyset.extmark_details[]>>>
 ---@field symbols_cache table<number, table<number, string>>
@@ -22,7 +23,8 @@ M.Cache = {}
 
 
 ---Creates a new cache instance.
----@return Cache
+---
+---@return Cache cache_structure
 function M.Cache:new()
   local props = { signs_cache = {}, symbols_cache = {} }
   local newObject = setmetatable(props, self)
@@ -34,6 +36,7 @@ end
 
 ---Fetches the sign_details index for a given context.
 ---Basically cache.buffer.changedtick
+---
 ---@param context Context
 ---@return table<number, vim.api.keyset.extmark_details[]>|nil
 function M.Cache:get_signs(context)
@@ -76,6 +79,7 @@ end
 
 ---Fetches the sign_details index for a given context.
 ---Basically cache.buffer.changedtick
+---
 ---@param context Context
 ---@return string|nil
 function M.Cache:get_symbol(context)
@@ -119,6 +123,7 @@ end
 
 
 ---Completely forgets a buffer. The buffer key should no longer show up in the cache.
+---
 ---@param buffer_number number
 function M.Cache:forget_buffer(buffer_number)
   self.signs_cache[buffer_number] = nil

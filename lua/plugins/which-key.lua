@@ -42,7 +42,7 @@ return {
 
 
 
-      { "<leader>p", group = "Packages", },
+      { "<leader>p", group = "Packages" },
       { "<leader>pp", "<cmd>Lazy<cr>", desc = "Plugins" },
 
 
