@@ -4,6 +4,7 @@ local function make_config(_, opts)
   local telescope = require("telescope")
   local actions = require("telescope.actions")
   local action_state = require "telescope.actions.state"
+  local trouble_actions = require("trouble.sources.telescope")
 
   -- This is a custom "delete buffer" function because it could be used with
   -- other pickers (e.g. Find file) and this results in ugly errors.
@@ -23,6 +24,12 @@ local function make_config(_, opts)
       ["<C-h>"] = actions.select_horizontal,
 
       ["<C-d>"] = delete_buffer,
+      ["<C-a>"] = trouble_actions.add,
+      ["<C-s>"] = trouble_actions.open, -- "s" for "save".
+    },
+    n = {
+      ["<C-a>"] = trouble_actions.add,
+      ["<C-s>"] = trouble_actions.open, -- "s" for "save".
     },
   }
 
