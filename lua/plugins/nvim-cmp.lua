@@ -14,7 +14,13 @@ local function make_config()
       end,
     },
     window = {
-      completion = cmp.config.window.bordered(),
+      completion = vim.tbl_extend(
+        "force",
+        cmp.config.window.bordered(),
+        {
+          scrolloff = 3,
+        }
+      ),
       documentation = cmp.config.window.bordered(),
     },
     -- :help cmp-mapping

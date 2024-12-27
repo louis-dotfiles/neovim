@@ -2,6 +2,29 @@
 
 local function make_config(_, opts)
   local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  local action_state = require "telescope.actions.state"
+
+  -- This is a custom "delete buffer" function because it could be used with
+  -- other pickers (e.g. Find file) and this results in ugly errors.
+  local function delete_buffer(prompt_bufnr)
+    local current_picker = action_state.get_current_picker(prompt_bufnr)
+
+    if current_picker.prompt_title == "Buffers" then
+      actions.delete_buffer(prompt_bufnr)
+    end
+  end
+
+  opts.defaults.mappings = {
+    i = {
+      -- Unmap the default <C-u> telescope mapping so that I can clear the
+      -- prompt.
+      ["<C-u>"] = false,
+      ["<C-h>"] = actions.select_horizontal,
+
+      ["<C-d>"] = delete_buffer,
+    },
+  }
 
   -- Load extensions here.
 
@@ -20,12 +43,6 @@ return {
       layout_strategy = "horizontal",
       layout_config = {
         prompt_position = "top",
-      },
-      mappings = {
-        i = {
-          -- Unmap the default <C-u> telescope mapping so that I can clear the prompt.
-          ["<C-u>"] = false,
-        },
       },
     },
   },

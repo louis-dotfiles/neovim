@@ -3,7 +3,7 @@ local gitsign_col = require("personal_plugins.statuscolumn.gitsign-col")
 local diagnostics_col = require("personal_plugins.statuscolumn.diagnostic-col")
 
 
----Decides if the buffer being drawn should be excluded or not.
+---Decides if the statusbar should be drawn for the buffer that's being drawn by Neovim.
 ---
 ---@param context Context
 ---@return boolean
@@ -18,6 +18,9 @@ local function is_excluded_filetype(context)
 end
 
 
+---General "context" container with pretty much all of the information you want
+---to draw the statuscolumn.
+---
 ---@class Context
 ---@field cursor_win_id number
 ---@field cursor_buffer number

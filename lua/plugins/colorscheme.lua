@@ -24,8 +24,9 @@ return {
       "which-key",
     },
     custom_highlights = {
-      -- Brighter visual selection, more visible when selecting individual characters like surrounding quotes.
-      Visual = { bg = "#252559" },
+      -- Brighter visual selection, more visible when selecting individual
+      -- characters like surrounding quotes.
+      Visual = { bg = "#283569" },
 
       -- Scrollbar handle in nvim-cmp popups.
       PmenuThumb = { bg = "#FFCB6B" },

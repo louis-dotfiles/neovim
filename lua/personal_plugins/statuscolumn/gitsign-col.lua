@@ -59,7 +59,8 @@ local function get_cached_signs(context)
 end
 
 
----Given a list of Diagnostic symbols, returns the symbol with the highest severity.
+---Given a list of Diagnostic symbols, returns the symbol with the highest
+---severity.
 ---
 ---@param sign_details vim.api.keyset.extmark_details[]
 ---@return string
@@ -95,18 +96,20 @@ function M.generate(context)
 end
 
 
--- This is a debounced function, it will only trigger 150ms after the last call, no matter how many times you call it.
+-- This is a debounced function, it will only trigger 150ms after the last call,
+-- no matter how many times you call it.
 local clear_cache = td.debounce_trailing(function(buffer_number)
   cache:clear_buffer(buffer_number)
   fresh_signs_available = true
 end, 150)
 
 
--- No need to clear the cache because the buffer hasn't changed.
--- However. Gitsigns only generates the signs for the visible portion of the buffer. So if we scroll around, we need to make sure we fetch the seigns again.
+-- No need to clear the cache because the buffer hasn't changed. However.
+-- Gitsigns only generates the signs for the visible portion of the buffer (and
+-- I dont know of any event for this). So if we scroll around, we need to make
+-- sure we fetch the signs again.
 vim.api.nvim_create_autocmd("WinScrolled", {
   callback = function()
-    -- print("gitsigns update", vim.inspect(args))
     fresh_signs_available = true
   end,
 })
@@ -116,7 +119,6 @@ vim.api.nvim_create_autocmd("WinScrolled", {
 vim.api.nvim_create_autocmd("User", {
   pattern = { "GitSignsUpdate", "GitSignsChanged" },
   callback = function(args)
-    -- print("gitsigns update", vim.inspect(args))
     clear_cache(args.buf)
   end,
 })
@@ -125,7 +127,6 @@ vim.api.nvim_create_autocmd("User", {
 -- No sense in keeping the cache for a buffer that's no longer loaded.
 vim.api.nvim_create_autocmd("BufDelete", {
   callback = function(args)
-    -- print("bufdelete", vim.inspect(args))
     cache:forget_buffer(args.buf)
   end,
 })

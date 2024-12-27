@@ -15,7 +15,7 @@ return {
     {
       "<F4>",
       "<cmd>HighlightColors Toggle<cr>",
-      desc = "Toogle color highlighting",
+      desc = "Toggle color highlighting",
     },
   }
 }

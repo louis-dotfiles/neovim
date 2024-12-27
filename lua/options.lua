@@ -10,8 +10,10 @@ vim.opt.breakindent = true
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+--Set indentation size to 4 for readability and to force me to write more
+--concise code.
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.incsearch = true
@@ -47,9 +49,13 @@ vim.opt.showmode = false
 vim.o.shortmess = "ltToOCFsS"
 vim.o.showcmd = false
 
+vim.opt.iskeyword:remove("_")
 
-vim.wo.colorcolumn = "80,100,110"
+vim.wo.colorcolumn = "80,100,120"
+vim.o.textwidth = 80
 
+-- Disable the mouse, note that the middle mouse button still pastes stuff.
+vim.opt.mouse = ""
 
 -- global-local options.
 vim.go.scrolloff = 6
