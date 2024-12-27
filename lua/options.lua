@@ -49,8 +49,8 @@ vim.opt.showmode = false
 vim.o.shortmess = "ltToOCFsS"
 vim.o.showcmd = false
 
+vim.wo.colorcolumn = "80,100,120"
 
-vim.wo.colorcolumn = "80,100,110"
 
 
 -- global-local options.
