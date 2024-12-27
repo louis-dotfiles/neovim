@@ -50,17 +50,14 @@ local function visual_selection_module()
 
   local text = ""
   if mode == "v" then
-    -- print("charwise")
     if line_diff ~= 0 then
       text = tostring(line_count) .. "l"
     else
       text = tostring(col_count) .. "c"
     end
   elseif mode == "V" then
-    -- print("linewise")
     text = tostring(line_count) .. "l"
   else
-    -- print("blockwise?")
     text = line_count .. "l x " .. col_count .. "c"
   end
 
@@ -83,7 +80,13 @@ local function search_count_module()
     text = ''
   else
     local total_char_length = string.len(search_info.total)
-    text = string.format('%0' .. total_char_length .. 'd/%d', search_info.current, search_info.total)
+    -- Format string to disaply
+    local format_string = '%0' .. total_char_length .. 'd/%d'
+    text = string.format(
+      format_string,
+      search_info.current,
+      search_info.total
+    )
   end
 
   return icon .. text
@@ -136,4 +139,3 @@ return {
     },
   },
 }
-

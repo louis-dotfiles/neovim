@@ -4,7 +4,6 @@ local utils = require("personal_plugins.statuscolumn.utils")
 
 local M = {}
 local cache = utils.Cache:new()
-local fresh_signs_available = false
 
 
 ---Given a list of Diagnostic symbols, returns the symbol with the highest severity.
@@ -48,10 +47,9 @@ end
 ---@return table<number, vim.api.keyset.extmark_details[]>
 local function get_cached_signs(context)
   local sign_details = cache:get_signs(context)
-  if fresh_signs_available or not sign_details then
+  if not sign_details then
     sign_details = extmarks.get_diagnostic_sign_details()
     cache:set_signs(context, sign_details)
-    fresh_signs_available = false
   end
 
   return sign_details
@@ -66,10 +64,7 @@ function M.generate(context)
   -- No signs in insert mode.
   if context.vim_mode == 'i' then return ' ' end
 
-  local symbol = nil
-  if not fresh_signs_available then
-    symbol = cache:get_symbol(context)
-  end
+  local symbol = cache:get_symbol(context)
 
   if not symbol then
     local sign_details = get_cached_signs(context)
@@ -82,7 +77,6 @@ function M.generate(context)
   return symbol
 end
 
--- local count = 0
 
 -- This is part of the caching mechanism.
 -- If you simply cache based on `changedtcik`, the statuscolumn is drawn before the diagnostics have time to update. Thus you will not have the correct signs.
@@ -90,21 +84,18 @@ end
 -- A redraw call apparently isn't needed. I suppose it's already queued when we get the event.
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
   callback = function(args)
-    -- print("args", vim.inspect(args))
     -- The event is also triggered for every new character typed in insert mode.
     -- We do not care about updating the signs every time we type something.
     local mode_response = vim.api.nvim_get_mode()
     if mode_response.mode == 'i' then return end
 
     cache:clear_buffer(args.buf)
-    fresh_signs_available = true
   end,
 })
 
 
 vim.api.nvim_create_autocmd('BufDelete', {
   callback = function(args)
-    -- print("bufdelete", vim.inspect(args))
     cache:forget_buffer(args.buf)
   end,
 })
