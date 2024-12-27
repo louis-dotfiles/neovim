@@ -49,6 +49,8 @@ vim.opt.showmode = false
 vim.o.shortmess = "ltToOCFsS"
 vim.o.showcmd = false
 
+vim.opt.iskeyword:remove("_")
+
 vim.wo.colorcolumn = "80,100,120"
 vim.o.textwidth = 80
 
