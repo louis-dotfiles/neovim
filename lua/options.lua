@@ -52,7 +52,8 @@ vim.o.showcmd = false
 vim.wo.colorcolumn = "80,100,120"
 vim.o.textwidth = 80
 
-
+-- Disable the mouse, note that the middle mouse button still pastes stuff.
+vim.opt.mouse = ""
 
 -- global-local options.
 vim.go.scrolloff = 6
