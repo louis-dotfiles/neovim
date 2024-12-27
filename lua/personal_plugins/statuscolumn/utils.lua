@@ -97,6 +97,19 @@ function M.Cache:set_symbol(context, symbol)
 end
 
 
+---Adds a symbol to a given draw buffer. The value for a given line may be overwritten.
+---
+---@param context Context
+---@param symbol string
+function M.Cache:add_symbol(context, symbol)
+  local buffer_cache = self.symbols_cache[context.draw_buffer] or {}
+
+  buffer_cache[context.lnum] = symbol
+
+  self.symbols_cache[context.draw_buffer] = buffer_cache
+end
+
+
 ---Clears both cache contents for a given buffer.
 ---@param buffer_number number
 function M.Cache:clear_buffer(buffer_number)

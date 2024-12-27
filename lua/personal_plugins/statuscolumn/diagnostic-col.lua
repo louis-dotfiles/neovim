@@ -77,7 +77,7 @@ function M.generate(context)
 
     local line_diagnostic_signs = sign_details[context.lnum]
     symbol = get_diagnostic_symbol_for_sign_details(line_diagnostic_signs)
-    cache:set_symbol(context, symbol)
+    cache:add_symbol(context, symbol)
   end
 
   return symbol

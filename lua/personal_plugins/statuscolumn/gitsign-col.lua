@@ -88,7 +88,7 @@ function M.generate(context)
 
     local sign_details = git_signs[context.lnum]
     symbol = get_git_symbol_from_sign_details(sign_details)
-    cache:set_symbol(context, symbol)
+    cache:add_symbol(context, symbol)
   end
 
   return symbol
