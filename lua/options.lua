@@ -10,8 +10,10 @@ vim.opt.breakindent = true
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+--Set indentation size to 4 for readability and to force me to write more
+--concise code.
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.incsearch = true
