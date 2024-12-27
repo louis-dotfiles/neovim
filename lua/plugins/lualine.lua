@@ -66,7 +66,7 @@ end
 
 
 ---Returns a visual indication of the search position and total results.
----e.g. 
+---e.g.  03/12
 ---
 ---@return string
 local function search_count_module()

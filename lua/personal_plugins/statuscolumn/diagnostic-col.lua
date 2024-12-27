@@ -6,7 +6,8 @@ local M = {}
 local cache = utils.Cache:new()
 
 
----Given a list of Diagnostic symbols, returns the symbol with the highest severity.
+---Given a list of Diagnostic symbols, returns the symbol with the highest
+---severity.
 ---
 ---@param sign_details vim.api.keyset.extmark_details[]
 ---@return string
@@ -41,7 +42,7 @@ local function get_diagnostic_symbol_for_sign_details(sign_details)
 end
 
 
----comment
+---Get the diagnostic sign details from extmarks or the cache (faster).
 ---
 ---@param context Context
 ---@return table<number, vim.api.keyset.extmark_details[]>
@@ -78,10 +79,17 @@ function M.generate(context)
 end
 
 
--- This is part of the caching mechanism.
--- If you simply cache based on `changedtcik`, the statuscolumn is drawn before the diagnostics have time to update. Thus you will not have the correct signs.
--- Luckily an event is triggered when the diagnostics update. And when they do, we clear the cache.
--- A redraw call apparently isn't needed. I suppose it's already queued when we get the event.
+-- This is the cache invalidation part of the caching mechanism.
+--
+-- If you simply cache based on `changedtcik`, the statuscolumn is drawn before
+-- the diagnostics have time to update. Thus you will not have the correct
+-- signs.
+--
+-- Luckily an event is triggered when the diagnostics update. And when they do,
+-- we clear the cache.
+--
+-- A redraw call apparently isn't needed. I suppose it's already queued when we
+-- get the event.
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
   callback = function(args)
     -- The event is also triggered for every new character typed in insert mode.
@@ -94,6 +102,7 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
 })
 
 
+-- No sense in keeping the cache for a buffer that's no longer loaded.
 vim.api.nvim_create_autocmd('BufDelete', {
   callback = function(args)
     cache:forget_buffer(args.buf)
