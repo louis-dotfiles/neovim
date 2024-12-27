@@ -28,7 +28,7 @@ Pay a visit to the [User_manual.md](./User_manual.md) documentation to learn mor
 
 ## Installation prerequisites
 
-**Neovim version >= 0.9.0**.
+**Neovim version >= 0.10.0**.
 
 Neovim itself doesn't need any additional programs to be installed
 and work, but to enjoy the full potential of the additional
