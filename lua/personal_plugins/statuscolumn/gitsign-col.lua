@@ -95,11 +95,11 @@ function M.generate(context)
 end
 
 
--- This is a debounced function, it will only trigger 100ms after the last call, no matter how many times you call it.
+-- This is a debounced function, it will only trigger 150ms after the last call, no matter how many times you call it.
 local clear_cache = td.debounce_trailing(function(buffer_number)
   cache:clear_buffer(buffer_number)
   fresh_signs_available = true
-end, 100)
+end, 150)
 
 
 -- No need to clear the cache because the buffer hasn't changed.
