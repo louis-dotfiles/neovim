@@ -62,6 +62,8 @@ end
 ---@param context Context
 ---@return string
 function M.generate(context)
+  if not vim.diagnostic.is_enabled() then return " " end
+
   local symbol = cache:get_symbol(context)
 
   if not symbol then
