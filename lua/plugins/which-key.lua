@@ -26,8 +26,6 @@ return {
       { "<leader>m", group = "Markdown" },
       { "<leader>f", group = "Find" },
       { "<leader>h", group = "Harpoon" },
-      { "<leader>s", group = "Swap" },
-
 
 
       { "<leader>l", group = "LSP", },

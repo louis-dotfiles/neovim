@@ -68,7 +68,7 @@ return {
     },
     keys = {
         {
-            "<leader>t",
+            "<leader>s",
             "<cmd>Switchboard<CR>",
             desc = "Switchboard",
         },

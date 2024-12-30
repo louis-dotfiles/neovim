@@ -84,7 +84,7 @@ Most new features will be available as keybindings:
   - `m`: markdown preview stuff.
   - `o`: code outline (LSP symbols).
   - `p`: plugins management.
-  - `s`: swaping function arguments.
+  - `s`: switchboard interface.
 - `g` has a few additional "editing" mappings:
   - `a`: aligns / tabulates lines.
   - `c`: comment code.

@@ -55,15 +55,6 @@ return {
 
         include_surrounding_whitespace = false,
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader>sa"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>sA"] = "@parameter.inner",
-        },
-      },
     },
   },
   main = "nvim-treesitter.configs",
