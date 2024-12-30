@@ -39,15 +39,12 @@ return {
       { "<leader>ll", "<cmd>LspInfo<cr>",         desc = "Info" }, -- 'll' because it's quick to type.
 
 
-
       { "<leader>p", group = "Packages" },
       { "<leader>pp", "<cmd>Lazy<cr>", desc = "Plugins" },
 
 
-
       { "<leader>w", "<cmd>write<cr>", desc = "Write file" },
       { "<leader>q", "<cmd>quit<cr>", desc = "Quit file" },
-
 
 
       { "[d", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },

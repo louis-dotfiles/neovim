@@ -22,7 +22,6 @@ return {
       merge_delimiter = "",
     },
   },
-  -- config = make_config,
   -- Doesn't work as I would like.
   keys = {
     {
