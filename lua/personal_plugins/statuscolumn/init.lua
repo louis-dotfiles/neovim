@@ -12,6 +12,7 @@ local function is_excluded_filetype(context)
     "neo-tree",
     "help",
     "lazy",
+    "man"
   }
 
   return vim.tbl_contains(excluded_filetypes, vim.bo[context.draw_buffer].filetype)
