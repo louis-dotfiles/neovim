@@ -20,10 +20,11 @@ set_keymap("n", "<C-j>", "<C-w>j", keymap_opts)
 set_keymap("n", "<C-k>", "<C-w>k", keymap_opts)
 set_keymap("n", "<C-l>", "<C-w>l", keymap_opts)
 
--- Shift + hl to go to the beginning and he end of lines in normal mode.
+-- Shift + hl to go to the beginning and he end of lines in the normal and
+-- visual modes.
 -- Much easier than ^ and $.
-set_keymap("n", "<S-h>", "^", keymap_opts)
-set_keymap("n", "<S-l>", "$", keymap_opts)
+set_keymap({ "n", "v" }, "<S-h>", "^", keymap_opts)
+set_keymap({ "n", "v" }, "<S-l>", "$", keymap_opts)
 
 -- Alt + hl to move around while typing a command.
 set_keymap("c", "<A-h>", "<Left>", keymap_opts)
