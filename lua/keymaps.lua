@@ -40,23 +40,9 @@ set_keymap("n", "yc", "yygccp", { remap = true })
 -- Function keys mappings. They are rarely used for anything so ... "free real estate"?
 set_keymap("n", "<F1>", "<cmd>Telescope help_tags<cr>", keymap_opts)
 
-local function toggle_line_wrap()
-  vim.wo.wrap = not vim.wo.wrap
-end
-
-set_keymap("n", "<F2>", toggle_line_wrap, keymap_opts)
-
-local function toggle_relative_line_number()
-  vim.o.relativenumber = not vim.o.relativenumber
-end
-set_keymap("n", "<F3>", toggle_relative_line_number, keymap_opts)
-
-
 
 local function clear_search_pattern()
   vim.cmd(':let @/ = ""')
 end
 set_keymap("n", "<F5>", clear_search_pattern, keymap_opts)
-
-
 
