@@ -25,6 +25,16 @@ return {
       function () require("gitsigns").reset_buffer() end,
       desc = "Reset buffer",
     },
+    {
+      "[h",
+      function () require("gitsigns").nav_hunk('prev') end,
+      desc = "Previous hunk",
+    },
+    {
+      "]h",
+      function () require("gitsigns").nav_hunk('next') end,
+      desc = "Next hunk",
+    },
   },
 }
 
