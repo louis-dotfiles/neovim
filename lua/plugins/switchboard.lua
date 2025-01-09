@@ -3,14 +3,10 @@
 ---@type SwitchboardSwitch
 local color_preview_switch = {
     label = "Color preview",
-    is_on = function ()
-        return require("nvim-highlight-colors").is_active()
-    end,
+    is_on = function () return require("nvim-highlight-colors").is_active() end,
     keymap = {
         "c",
-        function ()
-            require("nvim-highlight-colors").toggle()
-        end,
+        function () require("nvim-highlight-colors").toggle() end,
     },
 }
 
@@ -18,14 +14,14 @@ local color_preview_switch = {
 ---@param _ any
 ---@param opts SwitchboardOpts
 local function make_config(_, opts)
-    local builtins = require("switchboard.builtins")
+    local switches = require("switchboard.builtins").switches
 
     opts.switches = {
         color_preview_switch,
-        builtins.switches.make_diagnostics_switch("d"),
-        builtins.switches.make_inlay_hints_switch("h"),
-        builtins.switches.make_relative_line_numbers_switch("r"),
-        builtins.switches.make_line_wrap_switch("w"),
+        switches.make_diagnostics_switch("d"),
+        switches.make_inlay_hints_switch("h"),
+        switches.make_relative_line_numbers_switch("r"),
+        switches.make_line_wrap_switch("w"),
     }
 
     require("switchboard").setup(opts)
