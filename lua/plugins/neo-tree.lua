@@ -74,12 +74,12 @@ return {
     filesystem = {
       window = {
         mappings = {
-          ["l"] = "open",
-          ["L"] = "open_vsplit",
+          ["l"] = "open", -- Creates a new window.
+          ["L"] = "open_with_window_picker", -- Prompts you to pick an existing window.
           ["h"] = "close_node",
           ["C"] = "close_all_nodes",
-          ["<C-h>"] = "open_split",
-          ["<C-v>"] = "open_vsplit",
+          ["<C-h>"] = "split_with_window_picker",
+          ["<C-v>"] = "vsplit_with_window_picker",
         }
       },
       components = {},
