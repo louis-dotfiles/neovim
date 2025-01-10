@@ -52,6 +52,7 @@ Here's the complete list of plugins and what we use them for:
 - lualine.nvim: status line at the bottom of the screen.
 - luasnip: snippets.
 - markview: markdown preview.
+- lsp-signature: makes a popup with function signatures while typing.
 - markview: preview markdown files.
 - mason-lspconfig.nvim: adapter between Mason and lspconfig.
 - mason.nvim: installer for language servers.

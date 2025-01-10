@@ -17,6 +17,7 @@ Editing support functions:
 - Comment code.
 - LSP related:
   - Code completion and snippets.
+  - LSP signature popup while typing function calls.
   - Rename functions and variables.
   - Code actions.
   - Go to refererences.
