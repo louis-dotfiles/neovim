@@ -23,6 +23,7 @@ Editing support functions:
   - Go to refererences.
   - Go to definition.
 - Color codes preview.
+- Additional text objects like "arguments" ...
 
 Easily find files, by name or content with `:Telescope`. And much more!
 
@@ -43,7 +44,7 @@ you will need the following:
   [fnm](https://github.com/Schniz/fnm).
 - [Cargo](https://github.com/rust-lang/cargo) (the Rust package manager).
 - Some sort of C compiler (e.g. gcc).
-- Additional binaries: `fd`, `ripgrep`.
+- Additional binaries: `fd`, `ripgrep`, `node` (use [fnm](https://github.com/Schniz/fnm)).
 
 
 ## Installation
@@ -54,7 +55,7 @@ file](./init.lua).
 
 Upon first starting Neovim, the configuration will:
 
-1. download the package manager
+1. Download the package manager.
 1. In turn the package manager will download all configured plugins.
 1. Treesitter (one of the plugins) will download the configured language
    highlighting configurations.

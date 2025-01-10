@@ -51,7 +51,6 @@ Here's the complete list of plugins and what we use them for:
 - lazy.nvim: the plugins manager.
 - lualine.nvim: status line at the bottom of the screen.
 - luasnip: snippets.
-- markview: markdown preview.
 - lsp-signature: makes a popup with function signatures while typing.
 - markview: preview markdown files.
 - mason-lspconfig.nvim: adapter between Mason and lspconfig.
@@ -69,9 +68,12 @@ Here's the complete list of plugins and what we use them for:
 - smear-cursor: the cursor leaves a temporary "trail" while moving. Handy
   to better track cursor movements.
 - schemastore.nvim: provides schemas for JSON and YAML completion.
+- smear-cursor: make the cursor leave a "trail" when it moves.
+- statuscolumn: My own statuscolumn plugin.
+- switchboard: My "switches" plugin. It shows a panel with configured switches.
 - telescope.nvim: fuzzy finder.
-- treesitter-textobjects: creates additional text objects like
-  "functions", "parameters", "classes", "scopes".
+- treesitter-textobjects: creates additional text objects like "functions",
+  "parameters", "classes", "scopes".
 - treesitter: Abstract Syntax Tree engine, for better syntax highlighting
   and other fancy things.
 - treesj: split and join lines in a list.
@@ -217,5 +219,5 @@ plugin.
   - [ ] use telescope for quickfix list?
   - [ ] Telescope actions? (some broken stuff for now).
   - [ ] markdown table editing.
-  - [ ] neogit? Must have 3 panes view and linewise selection of changes.
+  - [ ] neogit? diffview? Must have 3 panes view and linewise selection of changes.
 
