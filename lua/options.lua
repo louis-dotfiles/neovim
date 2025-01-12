@@ -56,6 +56,11 @@ vim.o.textwidth = 80
 
 -- Disable the mouse, note that the middle mouse button still pastes stuff.
 vim.opt.mouse = ""
+-- https://stackoverflow.com/questions/75498817/nvim-deactivating-mouse
+vim.keymap.set("",  "<up>",   "<nop>", { noremap = true })
+vim.keymap.set("",  "<down>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<up>",   "<nop>", { noremap = true })
+vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 -- global-local options.
 vim.go.scrolloff = 6
