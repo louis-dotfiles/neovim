@@ -7,6 +7,7 @@ vim.keymap.set("ca", "hel",  "vert help")
 vim.keymap.set("ca", "help", "vert help")
 
 vim.keymap.set("ca", "W",   "w")
+vim.keymap.set("ca", "Wa",  "wa")
 vim.keymap.set("ca", "Wq",  "wq")
 vim.keymap.set("ca", "Wqa", "wqa")
 
