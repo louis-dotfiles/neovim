@@ -4,6 +4,14 @@
 -- to the mappings groups, and define plugin independent mappings.
 -- Hence this small configuration script.
 
+
+-- :help vim.lsp.buf.references()
+local function open_qflist_with_trouble(options)
+  vim.fn.setqflist({}, ' ', options)
+  require("trouble").open("qflist")
+end
+
+
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -33,7 +41,13 @@ return {
       { "<leader>lh", vim.lsp.buf.hover,          desc = "Hint" },
       { "<leader>ld", vim.lsp.buf.definition,     desc = "Go to definition" },
       { "<leader>li", vim.lsp.buf.implementation, desc = "Implementation" },
-      { "<leader>lm", vim.lsp.buf.references,     desc = "References" }, -- 'm' for 'mentions'.
+      {
+        "<leader>lm", -- 'm' for 'mentions'.
+        function()
+          vim.lsp.buf.references(nil, { on_list = open_qflist_with_trouble })
+        end,
+        desc = "References",
+      },
       { "<leader>lc", vim.lsp.buf.incoming_calls, desc = "Calls" },
       { "<leader>lr", vim.lsp.buf.rename,         desc = "Rename" },
       { "<leader>ll", "<cmd>LspInfo<cr>",         desc = "Info" }, -- 'll' because it's quick to type.
