@@ -77,4 +77,6 @@ return {
       desc = "toggle test",
     },
   },
+  cmd = "Trouble",
 }
+
