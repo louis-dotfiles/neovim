@@ -17,8 +17,7 @@ local function make_config(_, opts)
 
   opts.defaults.mappings = {
     i = {
-      -- Unmap the default <C-u> telescope mapping so that I can clear the
-      -- prompt.
+      -- Unmap the default <C-u> telescope mapping so that I can clear the prompt.
       ["<C-u>"] = false,
       ["<C-h>"] = actions.select_horizontal,
 
