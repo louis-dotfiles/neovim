@@ -4,7 +4,7 @@ local function make_config(_, opts)
   require("markview").setup(opts)
 
   -- Only option to disable Markview by default :( .
-  vim.cmd("Markview disableAll")
+  vim.cmd("Markview disable")
 end
 
 return {
