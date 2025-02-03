@@ -34,13 +34,13 @@ exceptions.
 Here's the complete list of plugins and what we use them for:
 - action-preview: preview the effect of LSP actions.
 - align: tabulate text.
-- barbecue: file and LSP information at the top of every buffer.
 - cmp-buffer: completes buffer names.
 - cmp-cmdline: completes command names.
 - cmp-nvim-lsp: lsp completion for code.
 - cmp-path: completes paths.
 - comment.nvim: comment code.
 - dressing: nicer prompt popups.
+- dropbar: file and LSP information at the top of every buffer.
 - gitsigns: some level of git integration, and symbols.
 - guess-indent.nvim: automatically sets the indentation level based on the
   current file indentation pattern.
