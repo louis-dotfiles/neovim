@@ -22,6 +22,7 @@ local function make_config(_, opts)
       ["<C-h>"] = actions.select_horizontal,
 
       ["<C-d>"] = delete_buffer,
+      -- ["<CR>"] = actions.,
     },
   }
 
@@ -92,4 +93,3 @@ return {
     "Telescope",
   },
 }
-
