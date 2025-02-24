@@ -5,6 +5,7 @@ return {
   "Bekaboo/dropbar.nvim",
   opts = {
     bar = {
+      enable = true,
       hover = false,
       pick = {
         pivots = '123456',
