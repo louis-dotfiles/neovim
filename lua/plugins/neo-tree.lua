@@ -74,8 +74,7 @@ return {
     filesystem = {
       window = {
         mappings = {
-          ["l"] = "open", -- Creates a new window.
-          ["L"] = "open_with_window_picker", -- Prompts you to pick an existing window.
+          ["l"] = "open_with_window_picker",
           ["h"] = "close_node",
           ["C"] = "close_all_nodes",
           ["<C-h>"] = "split_with_window_picker",
