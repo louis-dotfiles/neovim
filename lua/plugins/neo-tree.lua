@@ -79,6 +79,8 @@ return {
           ["C"] = "close_all_nodes",
           ["<C-h>"] = "split_with_window_picker",
           ["<C-v>"] = "vsplit_with_window_picker",
+          ["f"] = "noop",
+          ["s"] = "noop",
         }
       },
       components = {},
