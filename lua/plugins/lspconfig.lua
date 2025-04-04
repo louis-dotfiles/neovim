@@ -90,7 +90,7 @@ return {
   -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#setup
   dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    { "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
 
     -- For configuration file schemas.
     "b0o/schemastore.nvim",
