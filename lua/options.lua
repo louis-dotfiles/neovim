@@ -34,11 +34,11 @@ vim.opt.foldlevel = 99
 
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = " 󰌒",
-  trail = "·",
-  eol = "↵",
-  extends = "󰶻",
-  precedes = "󰶺",
+    tab = " 󰌒",
+    trail = "·",
+    eol = "↵",
+    extends = "󰶻",
+    precedes = "󰶺",
 }
 
 -- One statusline for all windows.

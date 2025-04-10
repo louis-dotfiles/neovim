@@ -1,46 +1,46 @@
 -- https://github.com/marko-cerovac/material.nvim
 
 local function make_config(_, opts)
-  require("material").setup(opts)
+    require("material").setup(opts)
 
-  -- Run this LAST.
-  vim.g.material_style = "deep ocean"
+    -- Run this LAST.
+    vim.g.material_style = "deep ocean"
 
-  vim.cmd("colorscheme material")
+    vim.cmd("colorscheme material")
 end
 
 return {
-  "marko-cerovac/material.nvim",
-  priority = 1000, -- Ensure it loads first
-  opts = {
-    plugins = {
-      "harpoon",
-      "indent-blankline",
-      "neogit",
-      "nvim-tree",
-      "nvim-web-devicons",
-      "telescope",
-      "trouble",
-      "which-key",
-    },
-    custom_highlights = {
-      -- Brighter visual selection, more visible when selecting individual
-      -- characters like surrounding quotes.
-      Visual = { bg = "#283569" },
+    "marko-cerovac/material.nvim",
+    priority = 1000, -- Ensure it loads first
+    opts = {
+        plugins = {
+            "harpoon",
+            "indent-blankline",
+            "neogit",
+            "nvim-tree",
+            "nvim-web-devicons",
+            "telescope",
+            "trouble",
+            "which-key",
+        },
+        custom_highlights = {
+            -- Brighter visual selection, more visible when selecting individual
+            -- characters like surrounding quotes.
+            Visual = { bg = "#283569" },
 
-      -- Scrollbar handle in nvim-cmp popups.
-      PmenuThumb = { bg = "#FFCB6B" },
+            -- Scrollbar handle in nvim-cmp popups.
+            PmenuThumb = { bg = "#FFCB6B" },
 
-      -- Visible borders.
-      FloatBorder = { fg = "#FFCB6B" },
-      LspInfoBorder = { fg = "#FFCB6B" },
-      TelescopePromptBorder = { fg = "#FFCB6B" },
-      TelescopePromptTitle = { fg = "#FFCB6B" },
-      NvimTreeWinSeparator = { fg = "#FFCB6B" },
-      WinSeparator = { fg = "#FFCB6B" },
+            -- Visible borders.
+            FloatBorder = { fg = "#FFCB6B" },
+            LspInfoBorder = { fg = "#FFCB6B" },
+            TelescopePromptBorder = { fg = "#FFCB6B" },
+            TelescopePromptTitle = { fg = "#FFCB6B" },
+            NvimTreeWinSeparator = { fg = "#FFCB6B" },
+            WinSeparator = { fg = "#FFCB6B" },
+        },
     },
-  },
-  config = make_config,
+    config = make_config,
 }
 
 -- I do not use this colorscheme as my main colorscheme.

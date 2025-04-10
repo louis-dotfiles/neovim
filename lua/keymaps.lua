@@ -2,7 +2,7 @@
 
 local set_keymap = vim.keymap.set
 local keymap_opts = {
-  noremap = true,
+    noremap = true,
 }
 
 -- Alt + hjkl to move around while in insert mode.
@@ -44,7 +44,7 @@ set_keymap("n", "<F1>", "<cmd>Telescope help_tags<cr>", keymap_opts)
 
 
 local function clear_search_pattern()
-  vim.cmd(':let @/ = ""')
+    vim.cmd(':let @/ = ""')
 end
 set_keymap("n", "<F5>", clear_search_pattern, keymap_opts)
 

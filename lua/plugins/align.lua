@@ -8,27 +8,27 @@
 local keybinding = "ga"
 
 return {
-  "echasnovski/mini.align",
-  version = "*",
-  opts = {
-    mappings = {
-      start_with_preview = keybinding,
-      start = nil,
+    "echasnovski/mini.align",
+    version = "*",
+    opts = {
+        mappings = {
+            start_with_preview = keybinding,
+            start = nil,
+        },
+        -- Default behavior.
+        options = {
+            split_pattern = " ",
+            justify_side = "left",
+            merge_delimiter = "",
+        },
     },
-    -- Default behavior.
-    options = {
-      split_pattern = " ",
-      justify_side = "left",
-      merge_delimiter = "",
+    -- Doesn't work as I would like.
+    keys = {
+        {
+            keybinding,
+            mode = { "v" },
+            desc = "Align text",
+        },
     },
-  },
-  -- Doesn't work as I would like.
-  keys = {
-    {
-      keybinding,
-      mode = { "v" },
-      desc = "Align text",
-    },
-  },
 }
 

@@ -28,7 +28,9 @@ local function make_config(_, opts)
 end
 
 return {
-    "louis-neovim-plugins/switchboard",
+    -- "louis-neovim-plugins/switchboard",
+    dir = "~/Documents/louis/switchboard",
+    enabled = false,
     config = make_config,
     keys = {
         {
