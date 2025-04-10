@@ -211,7 +211,7 @@ plugin.
 - [x] fix the markdown preview trigger
 - [x] more text objects?
 - [x] statuscolumn: `signs > number > gitsign+border`
-- [ ] Nice window with all of my "toggle" keymaps. (Snacks.toggle ? >>> Meh)
+- [~] Nice window with all of my "toggle" keymaps. (Snacks.toggle ? >>> Meh)
 - maybe?
   - [ ] 'noice' for nicer UI and hide the command line? No. Too invasive for me.
   - [ ] leap?

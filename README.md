@@ -6,7 +6,7 @@ without too many bells and whistles.
 
 ## Features
 
-Language server protocol (LSP): get errors and warning while you code, not when
+Langage server protocol (LSP): get errors and warning while you code, not when
 you compile or run your code.
 
 Editing support functions:
@@ -70,4 +70,3 @@ want / are configured. See
 Running `:checkhealth` can give you some insight into what might be broken /
 missing. Take some time to review potential errors and warnings (warning
 usually aren't critical and most can safely be ignored).
-
