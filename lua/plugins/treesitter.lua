@@ -19,6 +19,16 @@ local function make_config()
     },
 
     indent = { enable = true },
+
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gn", -- set to `false` to disable one of the mappings
+        node_incremental = "gn",
+        -- scope_incremental = "grc",
+        node_decremental = "gN",
+      },
+    },
   })
 
   -- Folding.
