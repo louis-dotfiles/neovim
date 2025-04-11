@@ -10,6 +10,8 @@ vim.keymap.set("ca", "W",   "w")
 vim.keymap.set("ca", "Wa",  "wa")
 vim.keymap.set("ca", "Wq",  "wq")
 vim.keymap.set("ca", "Wqa", "wqa")
+vim.keymap.set("ca", "qwa", "wqa")
+vim.keymap.set("ca", "Qwa", "wqa")
 
 vim.keymap.set("ca", "Q",  "q")
 vim.keymap.set("ca", "Qa", "qa")
