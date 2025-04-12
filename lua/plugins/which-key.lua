@@ -12,6 +12,14 @@ local function open_qflist_with_trouble(options)
 end
 
 
+---@param diagnostic? vim.Diagnostic
+local function jump_to_diagnostic(diagnostic)
+    if diagnostic then
+        vim.diagnostic.jump({ diagnostic = diagnostic })
+    end
+end
+
+
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -60,8 +68,16 @@ return {
             { "<leader>q", "<cmd>quit<cr>", desc = "Quit file" },
 
 
-            { "[d", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
-            { "]d", vim.diagnostic.goto_next, desc = "Next diagnostic" },
+            {
+                "[d",
+                function() jump_to_diagnostic(vim.diagnostic.get_prev()) end,
+                desc = "Previous diagnostic",
+            },
+            {
+                "]d",
+                function() jump_to_diagnostic(vim.diagnostic.get_next()) end,
+                desc = "Next diagnostic",
+            },
         },
     },
 }
