@@ -1,6 +1,3 @@
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#change-diagnostic-symbols-in-the-sign-column-gutter
-
--- :help diangostic-signs
 vim.diagnostic.config({
     -- virtual_text = true,
     virtual_lines = true,
@@ -14,5 +11,12 @@ vim.diagnostic.config({
     },
     float = { border = "rounded" },
     severity_sort = true,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  --group = lspgroup,
+  callback = function(event)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, { buffer = event.buf })
+  end
 })
 
