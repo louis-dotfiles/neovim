@@ -45,7 +45,7 @@ return {
 
 
             { "<leader>l", group = "LSP", },
-            { "<leader>lh", vim.lsp.buf.hover,          desc = "Hint" },
+            { "<leader>lh", function() vim.lsp.buf.hover({ border = "rounded" }) end, desc = "Hint" },
             { "<leader>ld", vim.lsp.buf.definition,     desc = "Go to definition" },
             { "<leader>li", vim.lsp.buf.implementation, desc = "Implementation" },
             {
