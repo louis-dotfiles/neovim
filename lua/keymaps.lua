@@ -44,7 +44,7 @@ set_keymap("n", "<F1>", "<cmd>Telescope help_tags<cr>", keymap_opts)
 
 
 local function clear_search_pattern()
-    vim.cmd(':let @/ = ""')
+    vim.fn.setreg("/", "")
 end
 set_keymap("n", "<F5>", clear_search_pattern, keymap_opts)
 
