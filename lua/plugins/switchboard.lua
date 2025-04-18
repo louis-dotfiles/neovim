@@ -1,6 +1,5 @@
 -- https://github.com/louis-neovim-plugins/switchboard
 
----@type SwitchboardSwitch
 local color_preview_switch = {
     label = "Color preview",
     is_on = function () return require("nvim-highlight-colors").is_active() end,
@@ -11,8 +10,6 @@ local color_preview_switch = {
 }
 
 
----@param _ any
----@param opts SwitchboardOpts
 local function make_config(_, opts)
     local switches = require("switchboard.builtins").switches
 
