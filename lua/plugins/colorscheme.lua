@@ -32,12 +32,12 @@ return {
             PmenuThumb = { bg = "#FFCB6B" },
 
             -- Visible borders.
-            FloatBorder = { fg = "#FFCB6B" },
-            LspInfoBorder = { fg = "#FFCB6B" },
+            FloatBorder           = { fg = "#FFCB6B" },
+            LspInfoBorder         = { fg = "#FFCB6B" },
             TelescopePromptBorder = { fg = "#FFCB6B" },
-            TelescopePromptTitle = { fg = "#FFCB6B" },
-            NvimTreeWinSeparator = { fg = "#FFCB6B" },
-            WinSeparator = { fg = "#FFCB6B" },
+            TelescopePromptTitle  = { fg = "#FFCB6B" },
+            NvimTreeWinSeparator  = { fg = "#FFCB6B" },
+            WinSeparator          = { fg = "#FFCB6B" },
         },
     },
     config = make_config,
