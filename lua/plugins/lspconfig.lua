@@ -48,7 +48,7 @@ local function make_config()
     -- LspConfig | Mason
     -- luals     | lua-language-server
     local luals_config = require("plugins/lsp_configs/luals")
-    lsp_config.lua_ls.setup(luals_config)
+    lsp_config.lua_ls.setup(tbl_merge("force", default_config, luals_config))
 
     -- LspConfig | Mason
     -- ts_ls     | typescript-language-server
@@ -100,3 +100,4 @@ return {
     },
     config = make_config,
 }
+

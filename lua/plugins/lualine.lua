@@ -1,30 +1,14 @@
 -- https://github.com/nvim-lualine/lualine.nvim
+-- https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#available-components
 
-
----Simply displays which LSP are attached to the current buffer.
----e.g.  lua_ls
+---Highlight a string with the given highlight group.
 ---
----@return string
-local function lsp_module()
-    local lsp_clients = vim.lsp.get_clients({ bufnr = 0 })
-
-    -- Aliases for LSPs with long names.
-    local shortnames = {
-        jedi_language_server = "jedi",
-    }
-
-    if #lsp_clients == 0 then
-        return "󰒲 "
-    end
-
-    local client_names = vim.tbl_map(
-        function(item) return shortnames[item.name] or item.name end,
-        vim.tbl_values(lsp_clients)
-    )
-
-    return " " .. table.concat(client_names, "|")
+---@param highlight_group string Highlight group name.
+---@param text string String to be hihglighted.
+---@return string highlighted_string
+local function highlight_text(highlight_group, text)
+  return table.concat({ "%#", highlight_group, "#", text, "%*" })
 end
-
 
 ---Returns a visual indication of the visual selection.
 ---e.g. 󰒉 3l
@@ -80,7 +64,7 @@ local function search_count_module()
         text = ''
     else
         local total_char_length = string.len(search_info.total)
-        -- Format string to disaply
+        -- Format string to display.
         local format_string = '%0' .. total_char_length .. 'd/%d'
         text = string.format(
             format_string,
@@ -92,6 +76,156 @@ local function search_count_module()
     return icon .. text
 end
 
+-- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/extensions/trouble.lua
+
+---Format mode, eg: lsp_document_symbols -> Lsp Document Symbols
+---@param mode string
+---@return string
+local function _format_mode(mode)
+    local words = vim.split(mode, '[%W]')
+    for i, word in ipairs(words) do
+        words[i] = word:sub(1, 1):upper() .. word:sub(2)
+    end
+
+    return table.concat(words, ' ')
+end
+
+local function get_trouble_mode()
+    local opts = require('trouble.config').options
+    if opts ~= nil and opts.mode ~= nil then
+        local text = _format_mode(opts.mode)
+        return highlight_text("Normal", text)
+    end
+
+    local win = vim.api.nvim_get_current_win()
+    if vim.w[win] ~= nil then
+        local trouble = vim.w[win].trouble
+        if trouble ~= nil and trouble.mode ~= nil then
+            local text = _format_mode(trouble.mode)
+            return highlight_text("Normal", text)
+        end
+    end
+
+    return 'Trouble'
+end
+
+
+local winbar_conf = {
+    -- Left side.
+    lualine_a = {},
+    lualine_b = {
+        { 'filename', path = 1 },
+    },
+    lualine_c = { "navic" },
+
+    -- Right side.
+    lualine_x = {},
+    lualine_y = {
+        {
+            'diagnostics',
+
+            -- Table of diagnostic sources, available sources are:
+            --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
+            -- or a function that returns a table as such:
+            --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
+            sources = { 'nvim_diagnostic' },
+
+            -- Displays diagnostics for the defined severity types
+            sections = { 'error', 'warn', 'info', 'hint' },
+
+            diagnostics_color = {
+                -- Same values as the general color option can be used here.
+                error = 'DiagnosticError', -- Changes diagnostics' error color.
+                warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+                info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+                hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+            },
+            symbols = {
+                -- error = 'E',
+                -- warn = 'W',
+                -- info = 'I',
+                -- hint = 'H',
+            },
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
+        },
+        {
+            'lsp_status',
+            icon = '',
+            symbols = {
+                -- Standard unicode symbols to cycle through for LSP progress:
+                spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+                -- Standard unicode symbol for when LSP is done:
+                done = '✓',
+                -- Delimiter inserted between LSP names:
+                separator = ' ',
+            },
+        },
+        'filetype',
+    },
+    lualine_z = {},
+}
+
+
+local statusline_conf = {
+    -- Left side.
+    lualine_a = { "mode" },
+    lualine_b = {
+        { "branch", icon = "" },
+        {
+            "diff",
+            symbols = {
+                added = " ",
+                modified = " ",
+                removed = " ",
+            },
+        },
+    },
+    lualine_c = {
+        {
+            'diagnostics',
+
+            -- Table of diagnostic sources, available sources are:
+            --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
+            -- or a function that returns a table as such:
+            --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
+            sources = { 'nvim_workspace_diagnostic' },
+
+            -- Displays diagnostics for the defined severity types
+            sections = { 'error', 'warn', 'info', 'hint' },
+
+            diagnostics_color = {
+                -- Same values as the general color option can be used here.
+                error = 'DiagnosticError', -- Changes diagnostics' error color.
+                warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+                info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+                hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+            },
+            symbols = {
+                -- error = 'E',
+                -- warn = 'W',
+                -- info = 'I',
+                -- hint = 'H',
+            },
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
+        },
+
+    },
+
+    -- Right side.
+    lualine_x = { "harpoon2" },
+    lualine_y = {
+        visual_selection_module,
+        search_count_module,
+    },
+    lualine_z = {
+        "progress",
+    },
+}
+
 
 return {
     "nvim-lualine/lualine.nvim",
@@ -100,42 +234,37 @@ return {
             "letieu/harpoon-lualine",
             dependencies = { "ThePrimeagen/harpoon", branch = "harpoon2" },
         },
+        {
+            "SmiteshP/nvim-navic",
+            dependencies = "neovim/nvim-lspconfig"
+        },
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
         options = {
             globalstatus = true,
+            disabled_filetypes = {
+                statusline = {},
+                winbar = {
+                    "neo-tree",
+                },
+            },
         },
-        sections = {
-            -- Left side.
-            lualine_a = { "mode" },
-            lualine_b = {
-                { "branch", icon = "" },
-                {
-                    "diff",
-                    symbols = {
-                        added = " ",
-                        modified = " ",
-                        removed = " ",
-                    },
-                },
-            },
-            lualine_c = {
-                {
-                    "diagnostics",
-                    symbols = {
-                        error = ' ',
-                        warn = ' ',
-                        hint = '󰌵 ',
-                        info = ' ',
-                    },
-                },
-            },
+        sections = statusline_conf,
+        winbar = winbar_conf,
+        inactive_winbar = winbar_conf,
 
-            -- Right side.
-            lualine_x = { "harpoon2" },
-            lualine_y = { lsp_module, "filetype" },
-            lualine_z = { visual_selection_module, search_count_module, "progress" },
+        -- Use that to configure lualine for specific filetypes.
+        extensions = {
+            trouble = {
+                winbar          = { lualine_b = { get_trouble_mode } },
+                inactive_winbar = { lualine_b = { get_trouble_mode } },
+                filetypes = {
+                    "trouble",
+                    "Trouble",
+                },
+            },
         },
     },
 }
+
