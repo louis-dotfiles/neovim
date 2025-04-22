@@ -18,13 +18,13 @@ local modes = {
     "virtual_lines",
     "virtual_text",
 }
-local active_mode = 1
+local active_mode_index = 1
 ---Cycles through diagnostics disaply modes.
 ---Virtual text tends to go "offscreen" on longer lines, and cannot be read.
 ---Virtual lines are invasive when there are a lot of errors.
 local function cycle_diagnostic_mode()
     -- print("active mode", active_mode, modes[active_mode])
-    active_mode = math.fmod(active_mode, #modes) + 1
+    active_mode_index = math.fmod(active_mode_index, #modes) + 1
     -- print("active mode", active_mode, modes[active_mode])
 
     local config = {}
@@ -32,7 +32,7 @@ local function cycle_diagnostic_mode()
         config[mode] = false
     end
 
-    config[modes[active_mode]] = true
+    config[modes[active_mode_index]] = true
 
     vim.diagnostic.config(config)
 end
