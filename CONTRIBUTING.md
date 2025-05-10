@@ -52,7 +52,6 @@ Here's the complete list of plugins and what we use them for:
 - lualine.nvim: status line at the bottom of the screen.
 - luasnip: snippets.
 - lsp-signature: makes a popup with function signatures while typing.
-- markview: preview markdown files.
 - mason-lspconfig.nvim: adapter between Mason and lspconfig.
 - mason.nvim: installer for language servers.
 - material.nvim: colorscheme.
@@ -208,7 +207,6 @@ plugin.
 - [x] keybinding for clearing all harpoons
 - [x] code outline
 - [x] wider outline window
-- [x] fix the markdown preview trigger
 - [x] more text objects?
 - [x] statuscolumn: `signs > number > gitsign+border`
 - [~] Nice window with all of my "toggle" keymaps. (Snacks.toggle ? >>> Meh)
