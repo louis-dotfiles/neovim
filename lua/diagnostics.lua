@@ -1,6 +1,4 @@
 vim.diagnostic.config({
-    -- virtual_text = true,
-    virtual_lines = true,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = "",
@@ -15,17 +13,17 @@ vim.diagnostic.config({
 
 
 local modes = {
-    "virtual_lines",
     "virtual_text",
+    "virtual_lines",
 }
 local active_mode_index = 1
+vim.diagnostic.config({ [modes[active_mode_index]] = true })
+
 ---Cycles through diagnostics disaply modes.
 ---Virtual text tends to go "offscreen" on longer lines, and cannot be read.
 ---Virtual lines are invasive when there are a lot of errors.
 local function cycle_diagnostic_mode()
-    -- print("active mode", active_mode, modes[active_mode])
     active_mode_index = math.fmod(active_mode_index, #modes) + 1
-    -- print("active mode", active_mode, modes[active_mode])
 
     local config = {}
     for _, mode in pairs(modes) do
