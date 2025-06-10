@@ -2,6 +2,7 @@
 
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
         textobjects = {
@@ -57,6 +58,5 @@ return {
             },
         },
     },
-    main = "nvim-treesitter.configs",
 }
 

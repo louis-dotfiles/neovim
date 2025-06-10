@@ -1,7 +1,7 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#lazynvim
 
 local function make_config()
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter")
 
     treesitter.setup({
         ensure_installed = "all",
@@ -39,6 +39,7 @@ end
 
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
     config = make_config,
 }
