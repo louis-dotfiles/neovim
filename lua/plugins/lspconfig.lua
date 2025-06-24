@@ -43,7 +43,8 @@ local function make_config()
 
     -- LspConfig | Mason
     -- ansiblels | ansible-language-server
-    lsp_config.ansiblels.setup(default_config)
+    local ansiblels_config = require("plugins/lsp_configs/ansiblels")
+    lsp_config.ansiblels.setup(tbl_merge("force", default_config, ansiblels_config))
 
     -- LspConfig | Mason
     -- luals     | lua-language-server
