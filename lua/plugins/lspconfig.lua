@@ -61,7 +61,13 @@ local function make_config()
 
     -- LspConfig | Mason
     -- bashls    | bash-language-server
-    lsp_config.bashls.setup(default_config)
+    lsp_config.bashls.setup(tbl_merge(
+        "force",
+        default_config,
+        {
+            filetypes = { "bash", "sh", "zsh" }
+        }
+    ))
 
     -- LspConfig   | Mason
     -- terraformls | terraform-ls
