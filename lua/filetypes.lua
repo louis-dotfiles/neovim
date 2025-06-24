@@ -3,6 +3,8 @@ vim.filetype.add({
     pattern = {
         -- Map the *Jenkinsfile* files to the 'groovy' filetype.
         [".*Jenkinsfile.*"] = "groovy",
+
+        -- Give the proper file type to git configuration files.
         [".*git/config"] = "gitconfig",
 
         -- Give the proper file type to ansible yaml configuration files.
