@@ -216,7 +216,12 @@ local statusline_conf = {
     },
 
     -- Right side.
-    lualine_x = { "harpoon2" },
+    lualine_x = {
+        {
+            "harpoon2",
+            icon = '󰀱',
+        }
+    },
     lualine_y = {
         visual_selection_module,
         search_count_module,
