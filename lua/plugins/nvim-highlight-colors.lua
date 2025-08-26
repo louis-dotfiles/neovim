@@ -8,6 +8,7 @@ return {
         virtual_symbol_position = "eol",
         exclude_filetypes = {
             "lazy", -- Lots of git hashes that are interpreted as color codes, and no colors expected in the filetype.
+            "mason",
         },
     },
     event = "VeryLazy",
