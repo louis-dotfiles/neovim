@@ -35,7 +35,7 @@ local function make_config()
 
     -- LspConfig | Mason
     -- gopls     | gopls
-    lsp_config.gopls.setup(default_config)
+    -- lsp_config.gopls.setup(default_config)
 
     -- LspConfig | Mason
     -- marksman  | marksman
