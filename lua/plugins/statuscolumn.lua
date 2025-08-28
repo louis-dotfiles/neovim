@@ -4,6 +4,9 @@ return {
     -- "louis-neovim-plugins/statuscolumn",
     dir = "~/Documents/louis/statuscolumn",
     dependencies = { "runiq/neovim-throttle-debounce" },
-    opts = {},
+    lazy = false,
+    opts = {
+        enabled = true,
+    },
 }
 

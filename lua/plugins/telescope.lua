@@ -5,8 +5,8 @@ local function make_config(_, opts)
     local actions = require("telescope.actions")
     local action_state = require "telescope.actions.state"
 
-    -- This is a custom "delete buffer" function because it could be used with
-    -- other pickers (e.g. Find file) and this results in ugly errors.
+    -- This is a custom "delete buffer" function. It should only be used with
+    -- the buffers picker.
     local function delete_buffer(prompt_bufnr)
         local current_picker = action_state.get_current_picker(prompt_bufnr)
 
@@ -22,7 +22,6 @@ local function make_config(_, opts)
             ["<C-h>"] = actions.select_horizontal,
 
             ["<C-d>"] = delete_buffer,
-            -- ["<CR>"] = actions.,
         },
     }
 
