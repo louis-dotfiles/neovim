@@ -12,12 +12,5 @@ return {
         },
     },
     event = "VeryLazy",
-    keys = {
-        {
-            "<F4>",
-            "<cmd>HighlightColors Toggle<cr>",
-            desc = "Toggle color highlighting",
-        },
-    }
 }
 
