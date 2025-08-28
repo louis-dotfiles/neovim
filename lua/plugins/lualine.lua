@@ -196,11 +196,10 @@ local statusline_conf = {
             sections = { 'error', 'warn', 'info', 'hint' },
 
             diagnostics_color = {
-                -- Same values as the general color option can be used here.
-                error = 'DiagnosticError', -- Changes diagnostics' error color.
-                warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-                info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-                hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+                error = 'DiagnosticError',
+                warn  = 'DiagnosticWarn',
+                info  = 'DiagnosticInfo',
+                hint  = 'DiagnosticHint',
             },
             symbols = {
                 -- error = 'E',
