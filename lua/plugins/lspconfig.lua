@@ -5,7 +5,7 @@
 --
 -- Mason-lspconfig documentation about the correspondance between Mason language server names
 -- and lspconfig language server names.
--- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+-- https://github.com/mason-org/mason-lspconfig.nvim/blob/v1.x/doc/mason-lspconfig-mapping.txt
 
 local tbl_merge = vim.tbl_deep_extend
 
