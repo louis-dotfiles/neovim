@@ -27,7 +27,6 @@ end
 return {
     -- "louis-neovim-plugins/switchboard",
     dir = "~/Documents/louis/switchboard",
-    enabled = false,
     config = make_config,
     keys = {
         {
