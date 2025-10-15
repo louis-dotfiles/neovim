@@ -42,6 +42,8 @@ return {
             { "<leader>m", group = "Markdown" },
             { "<leader>f", group = "Find" },
             { "<leader>h", group = "Harpoon" },
+            { "<leader>t", group = "TODOs" },
+            { "<leader>tp", group = "Priority" },
 
 
             { "<leader>l", group = "LSP", },
