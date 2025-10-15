@@ -1,4 +1,6 @@
 -- https://github.com/nvim-telescope/telescope.nvim
+-- The goat. If I were to keep only one plugin, that'd be the one.
+
 
 local function make_config(_, opts)
     local telescope = require("telescope")
@@ -52,6 +54,10 @@ return {
             prompt_prefix = '  ',
             selection_caret = ' ',
             multi_icon = ' ',
+            preview = {
+                -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#ignore-files-bigger-than-a-threshold
+                filesize_limit = 0.1, -- MB
+            },
         },
     },
     config = make_config,
