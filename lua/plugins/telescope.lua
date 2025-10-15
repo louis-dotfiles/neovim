@@ -22,6 +22,9 @@ local function make_config(_, opts)
             ["<C-h>"] = actions.select_horizontal,
 
             ["<C-d>"] = delete_buffer,
+
+            ["<C-b>"] = actions.preview_scrolling_up,
+            ["<C-f>"] = actions.preview_scrolling_down,
         },
     }
 
@@ -35,7 +38,10 @@ end
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
-    dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "BurntSushi/ripgrep",
+    },
     opts = {
         defaults = {
             sorting_strategy = "ascending",
@@ -43,6 +49,9 @@ return {
             layout_config = {
                 prompt_position = "top",
             },
+            prompt_prefix = '  ',
+            selection_caret = ' ',
+            multi_icon = ' ',
         },
     },
     config = make_config,
@@ -51,6 +60,11 @@ return {
             "<Leader>ff",
             "<cmd>Telescope find_files<cr>",
             desc = "Files",
+        },
+        {
+            "<Leader>fa",
+            "<cmd>Telescope resume<cr>",
+            desc = "Find again (resume)",
         },
         {
             "<Leader>fg",
@@ -86,6 +100,11 @@ return {
             "<Leader>fn",
             "<cmd>Telescope notify<cr>",
             desc = "Notifications",
+        },
+        {
+            "<Leader>fs",
+            "<cmd>Telescope search_history<cr>",
+            desc = "Searches",
         },
     },
     cmd = {

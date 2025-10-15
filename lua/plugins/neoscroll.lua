@@ -3,7 +3,8 @@
 return {
     "karb94/neoscroll.nvim",
     opts = {
-        duration_multiplier = 0.4,
+        duration_multiplier = 0.45,
+        easing = "quadratic",
         -- ignored_events = {           -- Events ignored while scrolling
         -- },
     },
