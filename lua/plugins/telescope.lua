@@ -93,13 +93,18 @@ return {
         },
         {
             "<Leader>fr",
-            "<cmd>Telescope registers<cr>",
+            "<cmd>Telescope neoclip<cr>",
             desc = "Registers",
         },
         {
             "<Leader>fn",
             "<cmd>Telescope notify<cr>",
             desc = "Notifications",
+        },
+        {
+            "<Leader>fm",
+            "<cmd>Telescope macroscope<cr>",
+            desc = "Macros",
         },
         {
             "<Leader>fs",
