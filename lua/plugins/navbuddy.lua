@@ -1,7 +1,7 @@
 -- https://github.com/SmiteshP/nvim-navbuddy
 
 return {
-    "SmiteshP/nvim-navbuddy",
+    "hasansujon786/nvim-navbuddy",
     dependencies = {
         "neovim/nvim-lspconfig",
         "SmiteshP/nvim-navic",
