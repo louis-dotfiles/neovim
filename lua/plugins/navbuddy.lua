@@ -1,4 +1,4 @@
--- https://github.com/SmiteshP/nvim-navbuddy
+-- https://github.com/hasansujon786/nvim-navbuddy
 
 return {
     "hasansujon786/nvim-navbuddy",
