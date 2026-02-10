@@ -79,6 +79,8 @@ local function make_config()
     -- LspConfig    | Mason
     -- basedpyright | basedpyright
     lsp_config.basedpyright.setup(get_lsp_capabilities({}))
+
+    lsp_config.helm_ls.setup(get_lsp_capabilities({}))
 end
 
 
