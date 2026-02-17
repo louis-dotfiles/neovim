@@ -86,6 +86,7 @@ end
 
 return {
     'neovim/nvim-lspconfig',
+    version = "2.1.0",
     dependencies = {
         -- For the completion engine.
         'saghen/blink.cmp',
